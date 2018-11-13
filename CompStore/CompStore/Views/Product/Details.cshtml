@@ -1,0 +1,75 @@
+﻿@model CompStore.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Название
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            Категория
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_category)
+        </dd>
+
+     
+        <dt>
+            Поставщик
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Id_supplier)
+        </dd>
+
+        <dt>
+            Страна производства
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Country)
+        </dd>
+
+        <dt>
+            Количество
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Number)
+        </dd>
+
+        <dt>
+            Цена за единицу товара
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+        <dt>
+            Дата постановки на учет
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Accounting_date)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Изменить", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Назад", "Index")
+</p>

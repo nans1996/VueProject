@@ -1,0 +1,71 @@
+﻿@model CompStore.AspNetUsers
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Вы уверены, что хотите удалить пользователя?</h3>
+<div>
+    <h4>Пользователи</h4>
+    <hr />
+    <dl class="dl-horizontal">
+         <h5>
+            
+            Логин
+            </h5>     
+        
+         <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            Фамилия
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+          <dt>
+            Имя
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+              
+        <dt>
+            Отчество
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Patronymic)
+        </dd>
+
+        <dt>
+            Номер личного дела
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.n_per_file)
+        </dd>
+
+        <dt>
+           Заработная плата
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salary)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Назад", "Index")
+        </div>
+    }
+</div>

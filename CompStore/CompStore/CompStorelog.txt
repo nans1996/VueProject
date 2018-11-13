@@ -1,0 +1,177 @@
+2017-11-25 13:44:12,246 [10] ERROR CompStore.Models.Logger [(null)] - Ошибка: 
+System.ServiceModel.FaultException: System.Web.Services.Protocols.SoapException: Сервер не распознал значение заголовка HTTP SOAPAction: http://tempuri.org/AddReseive.
+   в System.Web.Services.Protocols.Soap11ServerProtocolHelper.RouteRequest()
+   в System.Web.Services.Protocols.SoapServerProtocol.RouteRequest(SoapServerMessage message)
+   в System.Web.Services.Protocols.SoapServerProtocol.Initialize()
+   в System.Web.Services.Protocols.ServerProtocolFactory.Create(Type type, HttpContext context, HttpRequest request, HttpResponse response, Boolean& abortProcessing)
+
+Server stack trace: 
+   в System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   в System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   в System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   в System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   в System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   в System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   в CompStore.ServiceReference.StoreWebServiceSoap.AddReseive(AddReseiveRequest request)
+   в CompStore.ServiceReference.StoreWebServiceSoapClient.CompStore.ServiceReference.StoreWebServiceSoap.AddReseive(AddReseiveRequest request) в C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStore\Service References\ServiceReference\Reference.cs:строка 261
+   в CompStore.ServiceReference.StoreWebServiceSoapClient.AddReseive(Int32 id_store, Int32 id_product, Boolean receive) в C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStore\Service References\ServiceReference\Reference.cs:строка 270
+   в CompStore.Models.DAO.DAOProduct.AddToService(Product product) в C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStore\Models\DAO\DAOProduct.cs:строка 82
+2017-11-25 14:21:06,527 [6] ERROR CompStore.Models.Logger [(null)] - Ошибка: 
+System.Data.Entity.Validation.DbEntityValidationException: Сбой при проверке одной или нескольких сущностей. Более подробные сведения см. в свойстве "EntityValidationErrors".
+   в System.Data.Entity.Internal.InternalContext.SaveChanges()
+   в System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   в System.Data.Entity.DbContext.SaveChanges()
+   в CompStore.Models.DAO.DAOProduct.AddProduct(Product product) в C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStore\Models\DAO\DAOProduct.cs:строка 28
+2017-12-11 17:18:28,300 [10] ERROR CompStore.Models.Logger [(null)] - Ошибка: 
+System.Data.Entity.Validation.DbEntityValidationException: Сбой при проверке одной или нескольких сущностей. Более подробные сведения см. в свойстве "EntityValidationErrors".
+   в System.Data.Entity.Internal.InternalContext.SaveChanges()
+   в System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   в System.Data.Entity.DbContext.SaveChanges()
+   в CompStore.Models.DAO.DAOProduct.AddProduct(Product product) в C:\Users\Анастасия\Desktop\CompStore\CompStore\Models\DAO\DAOProduct.cs:строка 30
+2017-12-11 17:26:49,569 [8] ERROR CompStore.Models.Logger [(null)] - Ошибка: 
+System.Data.Entity.Validation.DbEntityValidationException: Сбой при проверке одной или нескольких сущностей. Более подробные сведения см. в свойстве "EntityValidationErrors".
+   в System.Data.Entity.Internal.InternalContext.SaveChanges()
+   в System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   в System.Data.Entity.DbContext.SaveChanges()
+   в CompStore.Models.DAO.DAOProduct.AddProduct(Product product) в C:\Users\Анастасия\Desktop\CompStore\CompStore\Models\DAO\DAOProduct.cs:строка 30
+2017-12-11 20:31:34,347 [7] ERROR CompStore.Models.Logger [(null)] - Ошибка: 
+System.Data.Entity.Validation.DbEntityValidationException: Сбой при проверке одной или нескольких сущностей. Более подробные сведения см. в свойстве "EntityValidationErrors".
+   в System.Data.Entity.Internal.InternalContext.SaveChanges()
+   в System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   в System.Data.Entity.DbContext.SaveChanges()
+   в CompStore.Models.DAO.DAOProduct.AddProduct(Product product) в C:\Users\Анастасия\Desktop\CompStore\CompStore\Models\DAO\DAOProduct.cs:строка 30
+2017-12-11 20:31:50,090 [6] ERROR CompStore.Models.Logger [(null)] - Ошибка: 
+System.ServiceModel.EndpointNotFoundException: Прослушивание на http://localhost:58040/StoreWebService.asmx не выполняла ни одна конечная точка, которая могла бы принять сообщение. Среди прочих причин это могло быть вызвано неправильным адресом или действием SOAP. Подробнее см. в описании InnerException (если имеется). ---> System.Net.WebException: Невозможно соединиться с удаленным сервером ---> System.Net.Sockets.SocketException: Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение 127.0.0.1:58040
+   в System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   в System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- Конец трассировки внутреннего стека исключений ---
+   в System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   в System.Net.HttpWebRequest.GetRequestStream()
+   в System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- Конец трассировки внутреннего стека исключений ---
+
+Server stack trace: 
+   в System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   в System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   в System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   в System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   в System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   в System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   в System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   в System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   в System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   в System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   в CompStore.ServiceReference.StoreWebServiceSoap.AddReceive(AddReceiveRequest request)
+   в CompStore.ServiceReference.StoreWebServiceSoapClient.CompStore.ServiceReference.StoreWebServiceSoap.AddReceive(AddReceiveRequest request) в C:\Users\Анастасия\Desktop\CompStore\CompStore\Service References\ServiceReference\Reference.cs:строка 453
+   в CompStore.ServiceReference.StoreWebServiceSoapClient.AddReceive(Int32 id_store, Int32 id_product, Int32 number) в C:\Users\Анастасия\Desktop\CompStore\CompStore\Service References\ServiceReference\Reference.cs:строка 462
+   в CompStore.Models.DAO.DAOProduct.AddToService(Product product) в C:\Users\Анастасия\Desktop\CompStore\CompStore\Models\DAO\DAOProduct.cs:строка 83
+2017-12-11 22:59:06,850 [12] ERROR CompStore.Models.Logger [(null)] - Ошибка: 
+System.ServiceModel.EndpointNotFoundException: Прослушивание на http://localhost:58040/StoreWebService.asmx не выполняла ни одна конечная точка, которая могла бы принять сообщение. Среди прочих причин это могло быть вызвано неправильным адресом или действием SOAP. Подробнее см. в описании InnerException (если имеется). ---> System.Net.WebException: Невозможно соединиться с удаленным сервером ---> System.Net.Sockets.SocketException: Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение 127.0.0.1:58040
+   в System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   в System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- Конец трассировки внутреннего стека исключений ---
+   в System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   в System.Net.HttpWebRequest.GetRequestStream()
+   в System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- Конец трассировки внутреннего стека исключений ---
+
+Server stack trace: 
+   в System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   в System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   в System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   в System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   в System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   в System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   в System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   в System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   в System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   в System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   в CompStore.ServiceReference.StoreWebServiceSoap.AddReceive(AddReceiveRequest request)
+   в CompStore.ServiceReference.StoreWebServiceSoapClient.CompStore.ServiceReference.StoreWebServiceSoap.AddReceive(AddReceiveRequest request) в C:\Users\Анастасия\Desktop\CompStore\CompStore\Service References\ServiceReference\Reference.cs:строка 453
+   в CompStore.ServiceReference.StoreWebServiceSoapClient.AddReceive(Int32 id_store, Int32 id_product, Int32 number) в C:\Users\Анастасия\Desktop\CompStore\CompStore\Service References\ServiceReference\Reference.cs:строка 462
+   в CompStore.Models.DAO.DAOProduct.AddToService(Product product) в C:\Users\Анастасия\Desktop\CompStore\CompStore\Models\DAO\DAOProduct.cs:строка 83
+2017-12-19 22:21:54,344 [17] ERROR CompStore.Models.Logger [(null)] - Ошибка: 
+System.ServiceModel.EndpointNotFoundException: Прослушивание на http://localhost:58040/StoreWebService.asmx не выполняла ни одна конечная точка, которая могла бы принять сообщение. Среди прочих причин это могло быть вызвано неправильным адресом или действием SOAP. Подробнее см. в описании InnerException (если имеется). ---> System.Net.WebException: Невозможно соединиться с удаленным сервером ---> System.Net.Sockets.SocketException: Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение 127.0.0.1:58040
+   в System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   в System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- Конец трассировки внутреннего стека исключений ---
+   в System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   в System.Net.HttpWebRequest.GetRequestStream()
+   в System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- Конец трассировки внутреннего стека исключений ---
+
+Server stack trace: 
+   в System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   в System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   в System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   в System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   в System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   в System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   в System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   в System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   в System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   в System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   в CompStore.ServiceReference.StoreWebServiceSoap.AddReceive(AddReceiveRequest request)
+   в CompStore.ServiceReference.StoreWebServiceSoapClient.CompStore.ServiceReference.StoreWebServiceSoap.AddReceive(AddReceiveRequest request) в C:\Users\Анастасия\Desktop\CompStore\CompStore\Service References\ServiceReference\Reference.cs:строка 525
+   в CompStore.ServiceReference.StoreWebServiceSoapClient.AddReceive(Int32 id_store, String id_product, Int32 number) в C:\Users\Анастасия\Desktop\CompStore\CompStore\Service References\ServiceReference\Reference.cs:строка 534
+   в CompStore.Models.DAO.DAOProduct.AddToService(Product product) в C:\Users\Анастасия\Desktop\CompStore\CompStore\Models\DAO\DAOProduct.cs:строка 84
+2017-12-21 20:48:15,092 [5] ERROR CompStore.Models.Logger [(null)] - Ошибка: 
+System.ServiceModel.EndpointNotFoundException: Прослушивание на http://localhost:58040/StoreWebService.asmx не выполняла ни одна конечная точка, которая могла бы принять сообщение. Среди прочих причин это могло быть вызвано неправильным адресом или действием SOAP. Подробнее см. в описании InnerException (если имеется). ---> System.Net.WebException: Невозможно соединиться с удаленным сервером ---> System.Net.Sockets.SocketException: Подключение не установлено, т.к. конечный компьютер отверг запрос на подключение 127.0.0.1:58040
+   в System.Net.Sockets.Socket.DoConnect(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   в System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- Конец трассировки внутреннего стека исключений ---
+   в System.Net.HttpWebRequest.GetRequestStream(TransportContext& context)
+   в System.Net.HttpWebRequest.GetRequestStream()
+   в System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   --- Конец трассировки внутреннего стека исключений ---
+
+Server stack trace: 
+   в System.ServiceModel.Channels.HttpOutput.WebRequestHttpOutput.GetOutputStream()
+   в System.ServiceModel.Channels.HttpOutput.Send(TimeSpan timeout)
+   в System.ServiceModel.Channels.HttpChannelFactory`1.HttpRequestChannel.HttpChannelRequest.SendRequest(Message message, TimeSpan timeout)
+   в System.ServiceModel.Channels.RequestChannel.Request(Message message, TimeSpan timeout)
+   в System.ServiceModel.Dispatcher.RequestChannelBinder.Request(Message message, TimeSpan timeout)
+   в System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   в System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   в System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   в System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   в System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   в CompStore.ServiceReference.StoreWebServiceSoap.AddReceive(AddReceiveRequest request)
+   в CompStore.ServiceReference.StoreWebServiceSoapClient.CompStore.ServiceReference.StoreWebServiceSoap.AddReceive(AddReceiveRequest request) в C:\Users\Анастасия\Desktop\CompStore\CompStore\Service References\ServiceReference\Reference.cs:строка 525
+   в CompStore.ServiceReference.StoreWebServiceSoapClient.AddReceive(Int32 id_store, String id_product, Int32 number) в C:\Users\Анастасия\Desktop\CompStore\CompStore\Service References\ServiceReference\Reference.cs:строка 534
+   в CompStore.Models.DAO.DAOProduct.AddToService(Product product) в C:\Users\Анастасия\Desktop\CompStore\CompStore\Models\DAO\DAOProduct.cs:строка 104
+2017-12-22 00:12:12,395 [6] ERROR CompStore.Models.Logger [(null)] - Ошибка: 
+System.ServiceModel.FaultException: System.Web.Services.Protocols.SoapException: Серверу не удалось обработать запрос. ---> MySql.Data.MySqlClient.MySqlException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''where id_store = 4 and id_product =1111' at line 1
+   в MySql.Data.MySqlClient.MySqlStream.ReadPacket()
+   в MySql.Data.MySqlClient.NativeDriver.GetResult(Int32& affectedRow, Int64& insertedId)
+   в MySql.Data.MySqlClient.Driver.GetResult(Int32 statementId, Int32& affectedRows, Int64& insertedId)
+   в MySql.Data.MySqlClient.Driver.NextResult(Int32 statementId, Boolean force)
+   в MySql.Data.MySqlClient.MySqlDataReader.NextResult()
+   в MySql.Data.MySqlClient.MySqlCommand.ExecuteReader(CommandBehavior behavior)
+   в MySql.Data.MySqlClient.MySqlCommand.ExecuteNonQuery()
+   в StoreWebService.UpdateNumberProduct(Int32 number, Int32 id_store, String ident) в c:\Users\Анастасия\Documents\Visual Studio 2015\WebSites\ShopService\App_Code\StoreWebService.cs:строка 249
+   --- Конец трассировки внутреннего стека исключений ---
+
+Server stack trace: 
+   в System.ServiceModel.Channels.ServiceChannel.HandleReply(ProxyOperationRuntime operation, ProxyRpc& rpc)
+   в System.ServiceModel.Channels.ServiceChannel.Call(String action, Boolean oneway, ProxyOperationRuntime operation, Object[] ins, Object[] outs, TimeSpan timeout)
+   в System.ServiceModel.Channels.ServiceChannelProxy.InvokeService(IMethodCallMessage methodCall, ProxyOperationRuntime operation)
+   в System.ServiceModel.Channels.ServiceChannelProxy.Invoke(IMessage message)
+
+Exception rethrown at [0]: 
+   в System.Runtime.Remoting.Proxies.RealProxy.HandleReturnMessage(IMessage reqMsg, IMessage retMsg)
+   в System.Runtime.Remoting.Proxies.RealProxy.PrivateInvoke(MessageData& msgData, Int32 type)
+   в CompStore.ServiceReference.StoreWebServiceSoap.UpdateNumberProduct(UpdateNumberProductRequest request)
+   в CompStore.ServiceReference.StoreWebServiceSoapClient.CompStore.ServiceReference.StoreWebServiceSoap.UpdateNumberProduct(UpdateNumberProductRequest request) в C:\Users\Анастасия\Desktop\CompStore\CompStore\Service References\ServiceReference\Reference.cs:строка 579
+   в CompStore.ServiceReference.StoreWebServiceSoapClient.UpdateNumberProduct(Int32 number, Int32 id_store, String ident) в C:\Users\Анастасия\Desktop\CompStore\CompStore\Service References\ServiceReference\Reference.cs:строка 588
+   в CompStore.Models.DAO.DAOSelling.UpdateNumberService() в C:\Users\Анастасия\Desktop\CompStore\CompStore\Models\DAO\DAOSelling.cs:строка 56

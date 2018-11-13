@@ -1,0 +1,42 @@
+﻿]@model IEnumerable<CompStore.ProductList>
+
+@{
+    ViewBag.Title = "IndexSellingProduct";
+}
+
+<h2>Список проданых товаров</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Товар
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Id_selling)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Number)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.Product.Name
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.Number)
+        </td>
+        
+    </tr>
+}
+
+</table>
+<p>
+@Html.ActionLink("Назад", "Index", "Selling") 
+    </p>

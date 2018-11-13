@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c83eca214c704ef2a84ccb03c5822b78" Name="Diagram1" ZoomLevel="62">
+        <EntityTypeShape EntityType="Model.AspNetRoles" Width="1.5" PointX="2.375" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AspNetUsers" Width="1.5" PointX="4.375" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Category" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.Supplier" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="Model.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Model.Selling" Width="1.5" PointX="6.875" PointY="6.25" />
+        <AssociationConnector Association="Model.FK__Selling__Id_sell__6477ECF3" />
+        <EntityTypeShape EntityType="Model.ProductList" Width="1.5" PointX="8.25" PointY="2.5" />
+        <AssociationConnector Association="Model.FK__ProductLi__Id_se__2A164134" />
+        <EntityTypeShape EntityType="Model.Product" Width="1.5" PointX="3" PointY="1.375" />
+        <AssociationConnector Association="Model.FK__Product__Id_cate__6FE99F9F" />
+        <AssociationConnector Association="Model.FK__Product__Id_supp__70DDC3D8" />
+        <AssociationConnector Association="Model.FK__ProductLi__Id_pr__29221CFB" />
+        <EntityTypeShape EntityType="Model.Cart" Width="1.5" PointX="5.25" PointY="2.375" />
+        <AssociationConnector Association="Model.FK__Cart__id_product__3A4CA8FD" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

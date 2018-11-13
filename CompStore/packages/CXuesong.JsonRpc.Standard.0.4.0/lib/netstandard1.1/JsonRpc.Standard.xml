@@ -1,0 +1,1083 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JsonRpc.Standard</name>
+    </assembly>
+    <members>
+        <member name="T:JsonRpc.Standard.Client.JsonRpcClientException">
+            <summary>
+            The base exception class that indicates the general error of JSON RPC client.
+            </summary>
+        </member>
+        <member name="T:JsonRpc.Standard.Client.JsonRpcContractException">
+            <summary>
+            The exception that indicates the violation of a server/client-side RPC contract.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Client.JsonRpcContractException.RpcMessage">
+            <summary>
+            Gets the JSON RPC message that caused this exception.
+            </summary>
+        </member>
+        <member name="T:JsonRpc.Standard.Client.JsonRpcRemoteException">
+            <summary>
+            The exception that indicates an error from remote RPC endpoint.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Client.JsonRpcRemoteException.Error">
+            <summary>
+            The JSON RPC Error object that raises the exception.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Client.JsonRpcRemoteException.RemoteException">
+            <summary>
+            Remote CLR exception data, if available.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Client.JsonRpcRemoteException.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:JsonRpc.Standard.Client.IJsonRpcClientHandler">
+            <summary>
+            Provides methods for transmitting the client-side JSON RPC messages.
+            </summary>
+            <remarks>Implementation Notes: Consider inheriting from <see cref="T:JsonRpc.Standard.Client.JsonRpcClientHandler"/> instead of directly implementing this interface.</remarks>
+        </member>
+        <member name="M:JsonRpc.Standard.Client.IJsonRpcClientHandler.SendAsync(JsonRpc.Standard.RequestMessage,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously sends a JSON RPC Request message, and wait for the Response (if the Request is not a Notification).
+            </summary>
+            <param name="request">The request message to be sent.</param>
+            <param name="cancellationToken">A token used to cancel the transmitting request, or to stop waiting for the Response.</param>
+            <returns>A task that returns JSON RPC response, or <c>null</c> if the Request is a Notification.</returns>
+            <remarks>
+            If a JSON RPC Request has already been sent, cancellation via
+            <paramref name="cancellationToken"/> will only make the returned task stop waiting for the response.
+            To actually notifies the RPC server to cancel certain request, both the client and server side should
+            make a contract on how to cancel an ongoing reqeuest, for example, by sending a special "cancellation"
+            notification.
+            </remarks>
+            <exception cref="T:System.ArgumentNullException"><paramref name="request"/> is <c>null</c>.</exception>
+            <exception cref="T:JsonRpc.Standard.Client.JsonRpcClientException">An exception has occurred while transmitting the request.
+            Note that a JSON RPC Response with Error will be returned and no exception should be thrown.</exception>
+        </member>
+        <member name="T:JsonRpc.Standard.Client.JsonRpcClientHandler">
+            <summary>
+            Provides basic infrastructures for <see cref="T:JsonRpc.Standard.Client.IJsonRpcClientHandler"/> implementation.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Client.JsonRpcClientHandler.SendAsync(JsonRpc.Standard.RequestMessage,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="E:JsonRpc.Standard.Client.JsonRpcClientHandler.MessageSending">
+            <summary>
+            Raises when a JSON RPC message will be sent.
+            </summary>
+        </member>
+        <member name="E:JsonRpc.Standard.Client.JsonRpcClientHandler.MessageReceiving">
+            <summary>
+            Raises when a JSON RPC message will be received.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Client.JsonRpcClientHandler.OnMessageSending(JsonRpc.Standard.RequestMessage)">
+            <summary>
+            Raises <see cref="E:JsonRpc.Standard.Client.JsonRpcClientHandler.MessageSending"/> event.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Client.JsonRpcClientHandler.OnMessageReceiving(JsonRpc.Standard.ResponseMessage)">
+            <summary>
+            Raises <see cref="E:JsonRpc.Standard.Client.JsonRpcClientHandler.MessageReceiving"/> event.
+            </summary>
+        </member>
+        <member name="T:JsonRpc.Standard.Client.JsonRpcClient">
+            <summary>
+            Used to compose and send JSON RPC requests.
+            </summary>
+        </member>
+        <member name="E:JsonRpc.Standard.Client.JsonRpcClient.RequestCancelling">
+            <summary>
+            Raises when a JSON RPC Request call is to be cancelled.
+            </summary>
+            <remarks>This event will not raise when a RPC notification has been cancelled.</remarks>
+        </member>
+        <member name="M:JsonRpc.Standard.Client.JsonRpcClient.#ctor(JsonRpc.Standard.Client.IJsonRpcClientHandler)">
+            <summary>
+            Initializes a JSON RPC client.
+            </summary>
+            <param name="handler">Handler used to transmit the messages.</param>
+        </member>
+        <member name="P:JsonRpc.Standard.Client.JsonRpcClient.Handler">
+            <summary>
+            Gets the handler used to transmit the messages.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Client.JsonRpcClient.NextRequestId">
+            <summary>
+            Generates the next unique value that can be used as <see cref="P:JsonRpc.Standard.RequestMessage.Id"/>.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Client.JsonRpcClient.SendNotificationAsync(System.String,Newtonsoft.Json.Linq.JToken,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously send a JSON RPC notification message.
+            </summary>
+            <param name="methodName">RPC method name.</param>
+            <param name="parameters">The parameters of the invocation. Can be null.</param>
+            <param name="cancellationToken">A token used to cancel the operation.</param>
+            <returns>A task contains the response of the request, or that contains <c>null</c> if the specified request does not need a response.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="methodName"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:JsonRpc.Standard.Client.JsonRpcClient.SendRequestAsync(System.String,Newtonsoft.Json.Linq.JToken,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously send a JSON RPC request message.
+            </summary>
+            <param name="methodName">RPC method name.</param>
+            <param name="parameters">The parameters of the invocation. Can be null.</param>
+            <param name="cancellationToken">A token used to cancel the operation.</param>
+            <returns>A task contains the response of the request, or that contains <c>null</c> if the specified request does not need a response.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="methodName"/> is <c>null</c>.</exception>
+            <exception cref="T:System.OperationCanceledException">(Can be <see cref="T:System.Threading.Tasks.TaskCanceledException"/>.) The operation has been cancelled.</exception>
+        </member>
+        <member name="M:JsonRpc.Standard.Client.JsonRpcClient.SendAsync(JsonRpc.Standard.RequestMessage,System.Threading.CancellationToken)">
+            <summary>
+            Asynchronously send a JSON RPC request or notification message.
+            </summary>
+            <param name="request">The request message to be sent.</param>
+            <param name="cancellationToken">A token used to cancel the operation.</param>
+            <returns>A task contains the response of the request, or that contains <c>null</c> if the specified request does not need a response.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="request"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">A <paramref name="request"/> with the same id has been sent. You need to try with a different id.</exception>
+            <exception cref="T:System.OperationCanceledException">(Can be <see cref="T:System.Threading.Tasks.TaskCanceledException"/>.) The operation has been cancelled.</exception>
+        </member>
+        <member name="M:JsonRpc.Standard.Client.JsonRpcClient.OnRequestCancelling(JsonRpc.Standard.MessageId)">
+            <summary>
+            Raises <see cref="E:JsonRpc.Standard.Client.JsonRpcClient.RequestCancelling"/> event.
+            </summary>
+        </member>
+        <member name="T:JsonRpc.Standard.Client.RequestCancellingEventArgs">
+            <summary>
+            Provides arguments for <see cref="E:JsonRpc.Standard.Client.JsonRpcClient.RequestCancelling"/> event.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Client.RequestCancellingEventArgs.RequestId">
+            <summary>
+            Id of the JSON RPC Request.
+            </summary>
+        </member>
+        <member name="T:JsonRpc.Standard.Contracts.JsonRpcScopeAttribute">
+            <summary>
+            Declares a JSON RPC method scope. Defines some common traits of the methods in the scope.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcScopeAttribute.MethodPrefix">
+            <summary>
+            The prefix that is prepended to all the names of the JSON RPC methods in the scope.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcScopeAttribute.NamingStrategyType">
+            <summary>
+            The <see cref="T:System.Type"/> of the <see cref="T:JsonRpc.Standard.Contracts.JsonRpcNamingStrategy"/> applied to the methods in this scope.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcScopeAttribute.NamingStrategyParameters">
+            <summary>
+            The constructor parameters used to instantiate the specified <see cref="P:JsonRpc.Standard.Contracts.JsonRpcScopeAttribute.NamingStrategyType"/>
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcScopeAttribute.ValueConverterType">
+            <summary>
+            The <see cref="T:System.Type"/> of <see cref="T:JsonRpc.Standard.Contracts.IJsonValueConverter"/> that applies to the parameters of
+            all the JSON RPC methods in the scope.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcScopeAttribute.ValueConverterParameters">
+            <summary>
+            The constructor parameters used to instantiate the specified <see cref="P:JsonRpc.Standard.Contracts.JsonRpcScopeAttribute.ValueConverterType"/>.
+            </summary>
+        </member>
+        <member name="T:JsonRpc.Standard.Contracts.JsonRpcMethodAttribute">
+            <summary>
+            Indicates the method is exposed for JSON RPC invocation.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.JsonRpcMethodAttribute.#ctor">
+            <summary>
+            Creates a default attribute instance.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.JsonRpcMethodAttribute.#ctor(System.String)">
+            <summary>
+            Creates an attribute instance.
+            </summary>
+            <param name="methodName">The name of the method.</param>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcMethodAttribute.MethodName">
+            <summary>
+            The name of the method. <c>null</c> to use the applied method name.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcMethodAttribute.IsNotification">
+            <summary>
+            Indicates whether the method is a notification request.
+            </summary>
+            <remarks>
+            This property is currently used in the client stub, and it's highly recommended that
+            this property be set for the server-side JSON RPC methods.
+            </remarks>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcMethodAttribute.AllowExtensionData">
+            <summary>
+            Used in the server. Whether allows extra parameters on this method when matching signature.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcMethodAttribute.NamingStrategyType">
+            <summary>
+            The <see cref="T:System.Type"/> of the <see cref="T:JsonRpc.Standard.Contracts.JsonRpcNamingStrategy"/> applied to the methods in this scope.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcMethodAttribute.NamingStrategyParameters">
+            <summary>
+            The constructor parameters used to instantiate the specified <see cref="P:JsonRpc.Standard.Contracts.JsonRpcMethodAttribute.NamingStrategyType"/>
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcMethodAttribute.ValueConverterType">
+            <summary>
+            The <see cref="T:System.Type"/> of <see cref="T:JsonRpc.Standard.Contracts.IJsonValueConverter"/> that applies to the parameters of this method.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcMethodAttribute.ValueConverterParameters">
+            <summary>
+            The constructor parameters used to instantiate the specified <see cref="P:JsonRpc.Standard.Contracts.JsonRpcMethodAttribute.ValueConverterType"/>
+            </summary>
+        </member>
+        <member name="T:JsonRpc.Standard.Contracts.JsonRpcParameterAttribute">
+            <summary>
+            Specifies the parameter options of a JSON RPC method.
+            </summary>
+            <remarks>
+            You can apply this attribute to the return value of a method. In C#, you may specify it as follows
+            <code>
+            [return: JsonRpcParameter]
+            // Your function signature here…
+            </code>
+            </remarks>
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.JsonRpcParameterAttribute.#ctor">
+            <summary>
+            Creates a default attribute instance.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.JsonRpcParameterAttribute.#ctor(System.String)">
+            <summary>
+            Creates an attribute instance.
+            </summary>
+            <param name="parameterName">The name of the parameter.</param>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcParameterAttribute.ParameterName">
+            <summary>
+            The name of the parameter. <c>null</c> to use the applied Parameter name.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcParameterAttribute.IsOptional">
+            <summary>
+            Whether the parameter is optional.
+            </summary>
+            <value>
+            If the value is <c>null</c>, the default behavior (whether CLR parameter is optional or not)
+            will be used.
+            </value>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcParameterAttribute.DefaultValue">
+            <summary>
+            The default value for the optional parameter.
+            </summary>
+            <remarks>
+            This value is in effect only if <see cref="P:JsonRpc.Standard.Contracts.JsonRpcParameterAttribute.IsOptional"/> is <c>true</c>.
+            Setting this value will automatically set <see cref="P:JsonRpc.Standard.Contracts.JsonRpcParameterAttribute.IsOptional"/> to <c>true</c>.
+            If you are setting both <see cref="P:JsonRpc.Standard.Contracts.JsonRpcParameterAttribute.IsOptional"/> and this property, the resulting
+            behavior is undefined.
+            </remarks>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcParameterAttribute.ValueConverterType">
+            <summary>
+            The <see cref="T:System.Type"/> of <see cref="T:JsonRpc.Standard.Contracts.IJsonValueConverter"/> that applies to this parameter.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcParameterAttribute.ValueConverterParameters">
+            <summary>
+            The constructor parameters used to instantiate the specified <see cref="P:JsonRpc.Standard.Contracts.JsonRpcParameterAttribute.ValueConverterType"/>
+            </summary>
+        </member>
+        <member name="T:JsonRpc.Standard.Contracts.IJsonRpcMethodBinder">
+            <summary>
+            Defines method to choose the best match among a set of RPC methods according to the JSON RPC request.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.IJsonRpcMethodBinder.TryBindToMethod(System.Collections.Generic.ICollection{JsonRpc.Standard.Contracts.JsonRpcMethod},JsonRpc.Standard.Server.RequestContext)">
+            <summary>
+            Resolves the target RPC method from the JSON RPC request.
+            </summary>
+            <param name="candidates">The methods to choose from.</param>
+            <param name="context">The request context.</param>
+            <returns>Target RPC method information, or <c>null</c> if no suitable method exists.</returns>
+            <exception cref="T:System.ArgumentNullException">Either <paramref name="candidates"/> or <paramref name="context"/> is null.</exception>
+            <exception cref="T:System.Reflection.AmbiguousMatchException">More than one method is found with that suits the specified request.</exception>
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.IJsonRpcMethodBinder.BindParameters(System.Collections.Generic.IList{JsonRpc.Standard.Contracts.JsonRpcParameter},JsonRpc.Standard.Server.RequestContext)">
+            <summary>
+            Binds the parameters contained in the specified JSON RPC request to the specified a parameter list.
+            </summary>
+            <param name="parameters">The target JSON RPC method parameters.</param>
+            <param name="context">The request context containing the parameters to be converted.</param>
+            <returns>An array of parameter values that will be used to invoke the actual CLR method.</returns>
+            <exception cref="T:System.ArgumentNullException">Either <paramref name="parameters"/> or <paramref name="context"/> is null.</exception>
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.JsonRpcMethodBinder.TryBindToMethod(System.Collections.Generic.ICollection{JsonRpc.Standard.Contracts.JsonRpcMethod},JsonRpc.Standard.Server.RequestContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.JsonRpcMethodBinder.BindParameters(System.Collections.Generic.IList{JsonRpc.Standard.Contracts.JsonRpcParameter},JsonRpc.Standard.Server.RequestContext)">
+            <inheritdoc />
+        </member>
+        <member name="T:JsonRpc.Standard.Contracts.IJsonRpcRequestMarshaler">
+            <summary>
+            Defines methods to convert CLR method parameters into JSON RPC request parameters.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.IJsonRpcRequestMarshaler.MarshalParameters(System.Collections.Generic.IList{JsonRpc.Standard.Contracts.JsonRpcParameter},System.Collections.IList)">
+            <summary>
+            Marshals the specified parameter values into JSON used as Request.params value.
+            </summary>
+            <param name="parameters">The parameters of the method.</param>
+            <param name="values">The values of the method. <c>null</c> is treated the same as empty array.</param>
+            <returns>The marshaled parameter value object or array or <c>null</c> for Request.params to be neglected.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="parameters"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:JsonRpc.Standard.Contracts.IJsonValueConverter">
+            <summary>
+            Used to convert value from/to JToken.
+            </summary>
+        </member>
+        <member name="T:JsonRpc.Standard.Contracts.JsonValueConverter">
+            <summary>
+            A JSON converter based on <see cref="T:Newtonsoft.Json.JsonSerializer"/>.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.JsonValueConverter.#ctor">
+            <summary>
+            Initializes a new instance with a default JSON serializer.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.JsonValueConverter.ValueToJson(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.JsonValueConverter.JsonToValue(Newtonsoft.Json.Linq.JToken,System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="T:JsonRpc.Standard.Contracts.CamelCaseJsonValueConverter">
+            <summary>
+            A JSON converter based on <see cref="T:Newtonsoft.Json.JsonSerializer"/> with <see cref="T:Newtonsoft.Json.Serialization.CamelCasePropertyNamesContractResolver"/>.
+            </summary>
+        </member>
+        <member name="T:JsonRpc.Standard.Contracts.IJsonRpcMethodInvoker">
+            <summary>
+            Defines method to invoke the specified JSON RPC method.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.IJsonRpcMethodInvoker.InvokeAsync(JsonRpc.Standard.Server.RequestContext,System.Object[])">
+            <summary>
+            Invokes the specified JSON RPC method asynchronously, using the specified request context.
+            </summary>
+            <param name="context"></param>
+            <param name="arguments">The arguments of the invocation. <c>null</c> for empty params.</param>
+            <returns>
+            A task that returns a <see cref="T:System.Object"/> to indicate the response,
+            or that returns <c>null</c> for the default response.
+            </returns>
+            <remarks>
+            This method will usually called from a working thread.
+            If there is error or exception occurred during invocation,
+            it should be encapsulated in the <see cref="T:System.Object"/>.
+            </remarks>
+            <exception cref="T:System.Exception">The invoked method throws an exception.</exception>
+        </member>
+        <member name="T:JsonRpc.Standard.Contracts.ReflectionJsonRpcMethodInvoker">
+            <summary>
+            The default implementation of <see cref="T:JsonRpc.Standard.Contracts.IJsonRpcMethodInvoker"/>.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.ReflectionJsonRpcMethodInvoker.InvokeAsync(JsonRpc.Standard.Server.RequestContext,System.Object[])">
+            <inheritdoc />
+        </member>
+        <member name="T:JsonRpc.Standard.Contracts.JsonRpcClientContract">
+            <summary>
+            Contract details used in JSON RPC calls.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcClientContract.Methods">
+            <summary>
+            Gets a dictionary that maps JSON RPC method name to a list of candidate methods.
+            </summary>
+        </member>
+        <member name="T:JsonRpc.Standard.Contracts.IJsonRpcContractResolver">
+            <summary>
+            Provides methods that can build <see cref="T:JsonRpc.Standard.Contracts.JsonRpcServerContract"/> for service and client.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.IJsonRpcContractResolver.CreateServerContract(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Builds a <see cref="T:JsonRpc.Standard.Contracts.JsonRpcServerContract"/> out of the specified JSON RPC service types.
+            </summary>
+            <exception cref="T:System.ArgumentNullException"><paramref name="contractTypes"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">There is <c>null</c> element in <paramref name="contractTypes"/>.</exception>
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.IJsonRpcContractResolver.CreateClientContract(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Builds a <see cref="T:JsonRpc.Standard.Contracts.JsonRpcServerContract"/> out of the specified JSON RPC client types.
+            </summary>
+            <exception cref="T:System.ArgumentNullException"><paramref name="contractTypes"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException">There is <c>null</c> element in <paramref name="contractTypes"/>.</exception>
+        </member>
+        <member name="T:JsonRpc.Standard.Contracts.JsonRpcContractResolver">
+            <summary>
+            A default implementation of <see cref="T:JsonRpc.Standard.Contracts.IJsonRpcContractResolver"/>.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcContractResolver.ParameterValueConverter">
+            <summary>
+            Gets/sets the converter used to convert the arguments from and results to JSON.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcContractResolver.NamingStrategy">
+            <summary>
+            Gets/sets the naming strategy used to map the RPC method and argument names.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.JsonRpcContractResolver.CreateServerContract(System.Collections.Generic.IEnumerable{System.Type})">
+            <inheritdoc />
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.JsonRpcContractResolver.CreateClientContract(System.Collections.Generic.IEnumerable{System.Type})">
+            <inheritdoc />
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.JsonRpcContractResolver.MethodsFromType(System.Type)">
+            <summary>
+            Gets a list of all the exposed JSON PRC methods in the specified service object type.
+            </summary>
+            <param name="serviceType">A subtype of <see cref="T:JsonRpc.Standard.Server.JsonRpcService"/>.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="serviceType"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="serviceType"/> is not a derived type from <see cref="T:JsonRpc.Standard.Server.JsonRpcService"/>.</exception>
+        </member>
+        <member name="T:JsonRpc.Standard.Contracts.JsonRpcMethod">
+            <summary>
+            Provides information to map a JSON RPC method to a CLR method.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.JsonRpcMethod.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:JsonRpc.Standard.Contracts.JsonRpcNamingStrategy">
+            <summary>
+            Used to map JSON RPC method and argument names into CLR counterparts.
+            </summary>
+            <remarks>
+            To decide the naming strategy for the JSON representation of argument CONTENT,
+            please use <see cref="T:JsonRpc.Standard.Contracts.JsonValueConverter"/> with a customized <see cref="T:Newtonsoft.Json.JsonSerializer"/>.
+            </remarks>
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.JsonRpcNamingStrategy.GetRpcMethodName(System.String,System.Boolean)">
+            <summary>
+            Maps a CLR method name into JSON RPC method name.
+            </summary>
+            <param name="methodName">The CLR method name, or user-specified method name (e.g. via Attributes).</param>
+            <param name="isSpecified">Whether the <paramref name="methodName"/> is specified explicity by user.</param>
+            <returns>The mapped JSON RPC method name.</returns>
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.JsonRpcNamingStrategy.GetRpcParameterName(System.String,System.Boolean)">
+            <summary>
+            Maps a CLR parameter name into JSON RPC parameter name.
+            </summary>
+            <param name="parameterName">The CLR parameter name, or user-specified parameter name (e.g. via Attributes).</param>
+            <param name="isSpecified">Whether the <paramref name="parameterName"/> is specified explicity by user.</param>
+            <returns>The mapped JSON RPC parameter name.</returns>
+        </member>
+        <member name="T:JsonRpc.Standard.Contracts.CamelCaseJsonRpcNamingStrategy">
+            <summary>
+            Maps camelCase JSON RPC method and argument names into PascalCase CLR counterparts.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.CamelCaseJsonRpcNamingStrategy.GetRpcMethodName(System.String,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.CamelCaseJsonRpcNamingStrategy.GetRpcParameterName(System.String,System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:JsonRpc.Standard.Contracts.JsonRpcParameter">
+            <summary>
+            Provides information to map an argument in JSON RPC method to a CLR method argument.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcParameter.ParameterName">
+            <summary>
+            The parameter name used in JSON.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcParameter.IsOptional">
+            <summary>
+            Whether the parameter is optional.
+            </summary>
+            <remarks>
+            Parameters with certain types (e.g. <see cref="T:System.Threading.CancellationToken"/>)
+            are always treated as optional.
+            </remarks>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcParameter.DefaultValue">
+            <summary>
+            The default value for the specified optional parameter.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcParameter.IsTask">
+            <summary>
+            Whether the parameter is a Task or Task&lt;ParameterType&gt; instead of ParameterType itself.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcParameter.ParameterType">
+            <summary>
+            The bare type of the parameter.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcParameter.Converter">
+            <summary>
+            The serializer used to convert the parameter.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Contracts.JsonRpcParameter.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:JsonRpc.Standard.Contracts.JsonRpcServerContract">
+            <summary>
+            Contract details used in JSON RPC calls.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Contracts.JsonRpcServerContract.Methods">
+            <summary>
+            Gets a dictionary that maps JSON RPC method name to a list of candidate methods.
+            </summary>
+        </member>
+        <member name="T:JsonRpc.Standard.JsonRpcException">
+            <summary>
+            An exception that is thorown by <see cref="T:JsonRpc.Standard.Server.JsonRpcService"/> implementations
+            to indicate an general JSON RPC error.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.JsonRpcException.Error">
+            <summary>
+            JSON RPC error object.
+            </summary>
+        </member>
+        <member name="T:JsonRpc.Standard.Message">
+            <summary>
+            Represents the base abstract JSON-RPC message.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Message.#ctor">
+            <summary>
+            Creates a new <see cref="T:JsonRpc.Standard.Message" /> instance.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Message.Version">
+            <summary>
+            The version of the JSON-RPC specification in use.
+            </summary>
+            <remarks>
+            <note type="note">This property is not used in version 1.0 of the JSON-RPC specification. As of version 2.0, the value should always be "2.0".</note>
+            </remarks>
+        </member>
+        <member name="M:JsonRpc.Standard.Message.LoadJson(System.String)">
+            <summary>
+            Converts a string containing JSON RPC message into <see cref="T:JsonRpc.Standard.Message"/>.
+            </summary>
+            <param name="jsonContent">JSON content.</param>
+            <returns>A subclass of <see cref="T:JsonRpc.Standard.Message"/>.</returns>
+            <exception cref="T:System.ArgumentException"><paramref name="jsonContent"/> doesn't contain valid JSON RPC message.</exception>
+        </member>
+        <member name="M:JsonRpc.Standard.Message.LoadJson(System.IO.TextReader)">
+            <summary>
+            Converts a string containing JSON RPC message into <see cref="T:JsonRpc.Standard.Message"/>.
+            </summary>
+            <param name="textReader">JSON content.</param>
+            <returns>A subclass of <see cref="T:JsonRpc.Standard.Message"/>.</returns>
+            <exception cref="T:System.ArgumentException"><paramref name="textReader"/> doesn't contain valid JSON RPC message.</exception>
+        </member>
+        <member name="M:JsonRpc.Standard.Message.WriteJson(System.IO.TextWriter)">
+            <summary>
+            Writes the JSON RPC string into specified <see cref="T:System.IO.TextWriter"/>.
+            </summary>
+            <param name="textWriter">The destination to write json content to.</param>
+        </member>
+        <member name="M:JsonRpc.Standard.Message.ToString">
+            <summary>
+            Gets the JSON representation of the message.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.RequestMessage.Id">
+            <summary>
+            A unique ID given to the request/response session. The request creator is responsible for assigning this value.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.RequestMessage.Method">
+            <summary>
+            The method to invoke on the receiver.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.RequestMessage.Parameters">
+            <summary>
+            A <see cref="T:Newtonsoft.Json.Linq.JObject" /> representing parameters for the method.
+            </summary>
+            <remarks>This member MAY be omitted (null).</remarks>
+        </member>
+        <member name="P:JsonRpc.Standard.RequestMessage.IsNotification">
+            <summary>
+            Determines whether this Request object is a Notification.
+            </summary>
+            <remarks>
+            A Notification is a Request object without an "id" member.  A Request object that is a Notification
+            signifies the Client's lack of interest in the corresponding Response object, and as such no Response
+            object needs to be returned to the client. The Server MUST NOT reply to a Notification, including
+            those that are within a batch request.
+            </remarks>
+        </member>
+        <member name="T:JsonRpc.Standard.ResponseMessage">
+            <summary>
+            An <see cref="T:JsonRpc.Standard.Message" /> implementation representing a JSON-RPC response.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.ResponseMessage.#ctor">
+            <summary>
+            Creates a new <see cref="T:JsonRpc.Standard.ResponseMessage" /> instance.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.ResponseMessage.#ctor(JsonRpc.Standard.MessageId)">
+            <summary>
+            Creates a new <see cref="T:JsonRpc.Standard.ResponseMessage" /> instance.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.ResponseMessage.#ctor(JsonRpc.Standard.MessageId,Newtonsoft.Json.Linq.JToken)">
+            <summary>
+            Creates a new <see cref="T:JsonRpc.Standard.ResponseMessage" /> instance that indicates success.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.ResponseMessage.#ctor(JsonRpc.Standard.MessageId,JsonRpc.Standard.ResponseError)">
+            <summary>
+            Creates a new <see cref="T:JsonRpc.Standard.ResponseMessage" /> instance that indicates error.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.ResponseMessage.#ctor(JsonRpc.Standard.MessageId,Newtonsoft.Json.Linq.JToken,JsonRpc.Standard.ResponseError)">
+            <summary>
+            Creates a new <see cref="T:JsonRpc.Standard.ResponseMessage" /> instance.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.ResponseMessage.Id">
+            <summary>
+            A unique ID assigned to the request/response session. The request creator is responsible for this value.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.ResponseMessage.Error">
+            <summary>
+            The error that occurred while processing the request.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.ResponseMessage.Result">
+            <summary>
+            An object representing the result of processing the request.
+            </summary>
+            <remarks>
+            To compose a valid JSON RPC response, you need to set this property to
+            the value returned by <see cref="M:Newtonsoft.Json.Linq.JValue.CreateNull"/>, if the response is
+            sucess and no other value is to be offered.
+            </remarks>
+        </member>
+        <member name="T:JsonRpc.Standard.MessageId">
+            <summary>
+            The message id in JSON RPC requests.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.MessageId.#ctor(System.Object)">
+            <summary>
+            Constructs a new instance from an underlying id value.
+            </summary>
+            <param name="id">Either null, string, or integer is acceptable.</param>
+        </member>
+        <member name="F:JsonRpc.Standard.MessageId.Empty">
+            <summary>
+            Represents an empty MessageId.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.MessageId.Value">
+            <summary>
+            The underlying value of the Id.
+            </summary>
+            <value>null, string, int, or long value.</value>
+        </member>
+        <member name="M:JsonRpc.Standard.MessageId.ToString">
+            <inheritdoc />
+        </member>
+        <member name="M:JsonRpc.Standard.MessageId.Equals(JsonRpc.Standard.MessageId)">
+            <inheritdoc />
+        </member>
+        <member name="M:JsonRpc.Standard.MessageId.Equals(System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="M:JsonRpc.Standard.MessageId.GetHashCode">
+            <inheritdoc />
+        </member>
+        <member name="M:JsonRpc.Standard.MessageId.op_Equality(JsonRpc.Standard.MessageId,JsonRpc.Standard.MessageId)">
+            <inheritdoc />
+        </member>
+        <member name="M:JsonRpc.Standard.MessageId.op_Inequality(JsonRpc.Standard.MessageId,JsonRpc.Standard.MessageId)">
+            <inheritdoc />
+        </member>
+        <member name="M:JsonRpc.Standard.MessageIdJsonConverter.WriteJson(Newtonsoft.Json.JsonWriter,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc />
+        </member>
+        <member name="M:JsonRpc.Standard.MessageIdJsonConverter.ReadJson(Newtonsoft.Json.JsonReader,System.Type,System.Object,Newtonsoft.Json.JsonSerializer)">
+            <inheritdoc />
+        </member>
+        <member name="M:JsonRpc.Standard.MessageIdJsonConverter.CanConvert(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="T:JsonRpc.Standard.MessageEventArgs">
+            <summary>
+            Contains event arguments for <see cref="P:JsonRpc.Standard.MessageEventArgs.Message"/> related events.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.MessageEventArgs.Message">
+            <summary>
+            Gets the message that raised the event.
+            </summary>
+        </member>
+        <member name="T:JsonRpc.Standard.JsonRpcErrorCode">
+            <summary>
+            Error codes, including those who are defined by the JSON-RPC 2.0 specification.
+            </summary>
+            <remarks>Error codes in the range -32000~-32029 are reserved for JsonRpc.Standard.</remarks>
+        </member>
+        <member name="F:JsonRpc.Standard.JsonRpcErrorCode.InternalError">
+            <summary>
+            Internal JSON-RPC error. (JSON-RPC)
+            </summary>
+        </member>
+        <member name="F:JsonRpc.Standard.JsonRpcErrorCode.InvalidParams">
+            <summary>
+            Invalid method parameter(s). (JSON-RPC)
+            </summary>
+        </member>
+        <member name="F:JsonRpc.Standard.JsonRpcErrorCode.InvalidRequest">
+            <summary>
+            The JSON sent is not a valid Request object. (JSON-RPC)
+            </summary>
+        </member>
+        <member name="F:JsonRpc.Standard.JsonRpcErrorCode.MethodNotFound">
+            <summary>
+            The method does not exist / is not available. (JSON-RPC)
+            </summary>
+        </member>
+        <member name="F:JsonRpc.Standard.JsonRpcErrorCode.ParseError">
+            <summary>
+            Invalid JSON was received by the server. An error occurred on the server while parsing the JSON text. (JSON-RPC)
+            </summary>
+        </member>
+        <member name="F:JsonRpc.Standard.JsonRpcErrorCode.UnhandledClrException">
+            <summary>
+            There is unhandled CLR exception occurred during the process of request. (JsonRpc.Standard)
+            </summary>
+        </member>
+        <member name="T:JsonRpc.Standard.ResponseError">
+            <summary>
+            JSON RPC Error contract object.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.ResponseError.Data">
+            <summary>
+            A <see cref="T:Newtonsoft.Json.Linq.JToken" /> representing parameters for the method.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.ClrExceptionErrorData.ToString">
+            <inheritdoc />
+        </member>
+        <member name="T:JsonRpc.Standard.Server.IServiceFactory">
+            <summary>
+            A factory that creates the specified JSON RPC service instance.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Server.IServiceFactory.CreateService(System.Type,JsonRpc.Standard.Server.RequestContext)">
+            <summary>
+            Creates the specified JSON RPC service instance.
+            </summary>
+            <param name="serviceType">The desired service type.</param>
+            <param name="context">The request context.</param>
+            <returns>A service instance.</returns>
+            <exception cref="T:System.ArgumentNullException"><paramref name="serviceType"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="serviceType"/> is not a derived type of <see cref="T:JsonRpc.Standard.Server.IJsonRpcService"/>.</exception>
+        </member>
+        <member name="M:JsonRpc.Standard.Server.IServiceFactory.ReleaseService(JsonRpc.Standard.Server.IJsonRpcService)">
+            <summary>
+            Releases the specified service instance.
+            </summary>
+            <param name="service">The service instance to be released.</param>
+        </member>
+        <member name="T:JsonRpc.Standard.Server.DefaultServiceFactory">
+            <summary>
+            Provides a default implementation of <see cref="T:JsonRpc.Standard.Server.IServiceFactory"/>.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Server.DefaultServiceFactory.CreateService(System.Type,JsonRpc.Standard.Server.RequestContext)">
+            <inheritdoc />
+        </member>
+        <member name="M:JsonRpc.Standard.Server.DefaultServiceFactory.ReleaseService(JsonRpc.Standard.Server.IJsonRpcService)">
+            <inheritdoc />
+        </member>
+        <member name="T:JsonRpc.Standard.Server.IFeatureCollection">
+            <summary>
+            Manages a collection of features.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Server.IFeatureCollection.Get(System.Type)">
+            <summary>
+            Gets the feature of the specified type.
+            </summary>
+            <param name="featureType">Feature type. Usually an interface type.</param>
+            <returns>The requested feature instance, or <c>null</c> if not applicable.</returns>
+        </member>
+        <member name="M:JsonRpc.Standard.Server.IFeatureCollection.Set(System.Type,System.Object)">
+            <summary>
+            Puts the specified feature instance into the dictionary.
+            </summary>
+            <param name="featureType">Feature type. Usually an interface type.</param>
+            <param name="instance">Feature instance, or <c>null</c> to set an existing feature to its default.</param>
+        </member>
+        <member name="T:JsonRpc.Standard.Server.FeatureCollectionExtensions">
+            <summary>
+            Extension methods for <see cref="T:JsonRpc.Standard.Server.IFeatureCollection"/>.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Server.FeatureCollectionExtensions.Get``1(JsonRpc.Standard.Server.IFeatureCollection)">
+            <summary>
+            Gets the feature of the specified type.
+            </summary>
+            <typeparam name="TFeature">Feature type. Usually an interface type.</typeparam>
+            <param name="featureCollection">The target feature collection.</param>
+            <returns>The requested feature instance, or <c>null</c> if not applicable.</returns>
+        </member>
+        <member name="M:JsonRpc.Standard.Server.FeatureCollectionExtensions.Set``1(JsonRpc.Standard.Server.IFeatureCollection,``0)">
+            <summary>
+            Puts the specified feature instance into the feature collection.
+            </summary>
+            <typeparam name="TFeature">Feature type. Usually an interface type.</typeparam>
+            <param name="featureCollection">The target feature collection.</param>
+            <param name="instance">Feature instance, or <c>null</c> to remove an existing feature.</param>
+        </member>
+        <member name="T:JsonRpc.Standard.Server.FeatureCollection">
+            <summary>
+            A collection of features.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Server.FeatureCollection.Get(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:JsonRpc.Standard.Server.FeatureCollection.Set(System.Type,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="T:JsonRpc.Standard.Server.SingleFeatureCollection`1">
+            <summary>
+            A feature collection that owns only 1 feature instance.
+            </summary>
+            <typeparam name="TFeature">Feature type.</typeparam>
+        </member>
+        <member name="M:JsonRpc.Standard.Server.SingleFeatureCollection`1.Get(System.Type)">
+            <inheritdoc />
+        </member>
+        <member name="M:JsonRpc.Standard.Server.SingleFeatureCollection`1.Set(System.Type,System.Object)">
+            <inheritdoc />
+        </member>
+        <member name="T:JsonRpc.Standard.Server.IRequestCancellationFeature">
+            <summary>
+            Provides methods to cancel an arbitrary impending request.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Server.IRequestCancellationFeature.TryCancel(JsonRpc.Standard.MessageId)">
+            <summary>
+            Tries to cancel the request with specified request id.
+            </summary>
+            <param name="id">The message id to cancel.</param>
+            <returns><c>true</c>, if the request has been successfully cancelled; <c>false</c> otherwise.</returns>
+        </member>
+        <member name="T:JsonRpc.Standard.Server.IJsonRpcServiceHost">
+            <summary>
+            Provides methods to dispatch and invoke the specified JSON RPC methods.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Server.IJsonRpcServiceHost.InvokeAsync(JsonRpc.Standard.RequestMessage,JsonRpc.Standard.Server.IFeatureCollection,System.Threading.CancellationToken)">
+            <summary>
+            Invokes the JSON RPC method.
+            </summary>
+            <param name="request">The JSON RPC request.</param>
+            <param name="features">The features provided along with the request. Use <c>null</c> to indicate default features set.</param>
+            <param name="cancellationToken">The token used to cancel the request.</param>
+            <returns>JSON RPC response, or <c>null</c> for JSON RPC notifications.</returns>
+            <remarks>For cancelled requests, no exception will be thrown, but a response containing <see cref="T:System.OperationCanceledException"/> CLR exception will be returned.</remarks>
+            <exception cref="T:System.ArgumentNullException"><paramref name="request"/> is <c>null</c>.</exception>
+        </member>
+        <member name="T:JsonRpc.Standard.Server.JsonRpcServerHandler">
+            <summary>
+            Abstract class for receiving request from somewhere,
+            and invoking <see cref="T:JsonRpc.Standard.Server.IJsonRpcServiceHost"/> with appropriate information.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Server.JsonRpcServerHandler.ServiceHost">
+            <summary>
+            Gets the undelying <see cref="T:JsonRpc.Standard.Server.IJsonRpcServiceHost"/>.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Server.JsonRpcServerHandler.DefaultFeatures">
+            <summary>
+            Gets/sets the default features applied to the <see cref="T:JsonRpc.Standard.Server.RequestContext"/>.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Server.IJsonRpcService.RequestContext">
+            <summary>
+            Gets or sets the <see cref="P:JsonRpc.Standard.Server.IJsonRpcService.RequestContext"/> of current request.
+            </summary>
+        </member>
+        <member name="T:JsonRpc.Standard.Server.JsonRpcService">
+            <summary>
+            Base class for providing JSON RPC service.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Server.JsonRpcService.RequestContext">
+            <summary>
+            Gets or sets the <see cref="P:JsonRpc.Standard.Server.JsonRpcService.RequestContext"/> of current request.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Server.JsonRpcServiceHost.InvokeAsync(JsonRpc.Standard.RequestMessage,JsonRpc.Standard.Server.IFeatureCollection,System.Threading.CancellationToken)">
+            <inheritdoc />
+        </member>
+        <member name="T:JsonRpc.Standard.Server.JsonRpcServiceHostBuilder">
+            <summary>
+            A builder for <see cref="T:JsonRpc.Standard.Server.IJsonRpcServiceHost"/>.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Server.JsonRpcServiceHostBuilder.ServiceFactory">
+            <summary>
+            The factory that creates the JSON RPC service instances to handle the requests.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Server.JsonRpcServiceHostBuilder.ContractResolver">
+            <summary>
+            Contract resolver that maps the JSON RPC methods to CLR service methods.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Server.JsonRpcServiceHostBuilder.MethodBinder">
+            <summary>
+            The binder that chooses the best match among a set of RPC methods.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Server.JsonRpcServiceHostBuilder.LoggerFactory">
+            <summary>
+            The logger factory used to get a logger for the service host.
+            </summary>
+            <remarks>If you want to completely disable the logging, set this property to an empty LoggerFactory instance.</remarks>
+        </member>
+        <member name="M:JsonRpc.Standard.Server.JsonRpcServiceHostBuilder.Register(System.Reflection.Assembly)">
+            <summary>
+            Registers all the exposed JSON PRC methods in the public service object types contained in the specified assembly.
+            </summary>
+            <param name="assembly">An assembly.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="assembly"/> is <c>null</c>.</exception>
+        </member>
+        <member name="M:JsonRpc.Standard.Server.JsonRpcServiceHostBuilder.Register(System.Type)">
+            <summary>
+            Registers all the exposed JSON PRC methods in the specified service object type.
+            </summary>
+            <param name="serviceType">A subtype of <see cref="T:JsonRpc.Standard.Server.JsonRpcService"/>.</param>
+            <exception cref="T:System.ArgumentNullException"><paramref name="serviceType"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentException"><paramref name="serviceType"/> is not a derived type from <see cref="T:JsonRpc.Standard.Server.JsonRpcService"/>.</exception>
+        </member>
+        <member name="M:JsonRpc.Standard.Server.JsonRpcServiceHostBuilder.Register``1">
+            <summary>
+            Registers all the exposed JSON PRC methods in the specified service object type.
+            </summary>
+            <typeparam name="TService">A subtype of <see cref="T:JsonRpc.Standard.Server.JsonRpcService"/>.</typeparam>
+        </member>
+        <member name="M:JsonRpc.Standard.Server.JsonRpcServiceHostBuilder.Intercept(System.Func{JsonRpc.Standard.Server.RequestContext,System.Func{System.Threading.Tasks.Task},System.Threading.Tasks.Task})">
+            <summary>
+            Adds a handler to intercept the JSON RPC requests.
+            </summary>
+            <param name="handler">The handler to be added.</param>
+            <remarks>
+            If there are multiple calls to this method, the last handler applied will be
+            the fist to receive the request.
+            </remarks>
+        </member>
+        <member name="M:JsonRpc.Standard.Server.JsonRpcServiceHostBuilder.Intercept(System.Func{JsonRpc.Standard.Server.RequestHandler,JsonRpc.Standard.Server.RequestHandler})">
+            <summary>
+            Adds a middleware to intercept the JSON RPC requests.
+            </summary>
+            <param name="middleware">The middleware to be added.</param>
+            <remarks>
+            <para>If there are multiple calls to this method, the handler generated by the first applied middleware
+            will be the fist to receive the request.</para>
+            <para>Usually <see cref="M:JsonRpc.Standard.Server.JsonRpcServiceHostBuilder.Intercept(System.Func{JsonRpc.Standard.Server.RequestContext,System.Func{System.Threading.Tasks.Task},System.Threading.Tasks.Task})"/> is preferred to this overload.</para>
+            </remarks>
+        </member>
+        <member name="M:JsonRpc.Standard.Server.JsonRpcServiceHostBuilder.Build">
+            <summary>
+            Builds an instance that implements <see cref="T:JsonRpc.Standard.Server.IJsonRpcServiceHost"/>.
+            </summary>
+        </member>
+        <member name="T:JsonRpc.Standard.Server.RequestHandler">
+            <summary>
+            The handler function that intercepts the client JSON RPC request.
+            </summary>
+            <param name="context">Current request context.</param>
+            <returns>A task.</returns>
+        </member>
+        <member name="T:JsonRpc.Standard.Server.RequestContext">
+            <summary>
+            Provides the context per JSON RPC request.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Server.RequestContext.ServiceHost">
+            <summary>
+            Gets the service host that initiates this request.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Server.RequestContext.ServiceFactory">
+            <summary>
+            The factory that creates the JSON RPC service instances to handle the requests.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Server.RequestContext.Features">
+            <summary>
+            The features provided with the request.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Server.RequestContext.Request">
+            <summary>
+            Gets the request message.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Server.RequestContext.Response">
+            <summary>
+            The response message to be sent. If this property is not <c>null</c>,
+            it will take precedence to the return value of the invoked CLR method.
+            </summary>
+        </member>
+        <member name="P:JsonRpc.Standard.Server.RequestContext.CancellationToken">
+            <summary>
+            The <see cref="P:JsonRpc.Standard.Server.RequestContext.CancellationToken"/> used to cancel this request. This token may be
+            checked in the RPC method.
+            </summary>
+        </member>
+        <member name="M:JsonRpc.Standard.Utility.Disposable2.Dispose">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>

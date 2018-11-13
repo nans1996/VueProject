@@ -1,0 +1,156 @@
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\ApplicationInsights.config
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\roslyn\csc.exe
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\roslyn\System.Collections.Immutable.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\roslyn\System.Reflection.Metadata.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\roslyn\vbc.exe
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\roslyn\VBCSCompiler.exe
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\roslyn\VBCSCompiler.exe.config
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\CompStoreTest.dll.config
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\CompStoreTest.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\CompStoreTest.pdb
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\CompStore.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\System.Web.Helpers.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\System.Web.Mvc.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\System.Web.Razor.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\System.Web.WebPages.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\Microsoft.Owin.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\System.Web.Optimization.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\Owin.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\EntityFramework.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\PagedList.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\CompStore.pdb
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\System.Web.Helpers.xml
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\System.Web.Mvc.xml
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\System.Web.Razor.xml
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\System.Web.WebPages.xml
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\Microsoft.Owin.xml
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\System.Web.Optimization.xml
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\EntityFramework.xml
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\PagedList.xml
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\ru\System.Web.Helpers.resources.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\ru\System.Web.Mvc.resources.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\ru\System.Web.Razor.resources.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\ru\System.Web.WebPages.resources.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\ru\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\ru\System.Web.WebPages.Razor.resources.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\ru\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\ru\Microsoft.Owin.resources.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\ru\System.Web.Optimization.resources.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\ru\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\ru\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\ru\Microsoft.Owin.Security.resources.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\ru\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\ru\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\obj\Debug\CompStoreTest.csprojResolveAssemblyReference.cache
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\obj\Debug\CompStoreTest.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\obj\Debug\CompStoreTest.pdb
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\Castle.Core.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\Moq.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\Castle.Core.xml
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\Moq.pdb
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\Moq.xml
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\log4net.dll
+C:\Users\Анастасия\Documents\Visual Studio 2015\курсач\1\CompStore\CompStoreTest\bin\Debug\log4net.xml
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\obj\Debug\CompStoreTest.csprojResolveAssemblyReference.cache
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\obj\Debug\CompStoreTest.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\obj\Debug\CompStoreTest.pdb
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\ApplicationInsights.config
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\roslyn\csc.exe
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\roslyn\System.Collections.Immutable.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\roslyn\System.Reflection.Metadata.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\roslyn\vbc.exe
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\roslyn\VBCSCompiler.exe
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\roslyn\VBCSCompiler.exe.config
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\CompStoreTest.dll.config
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\CompStoreTest.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\CompStoreTest.pdb
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\Castle.Core.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\CompStore.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\Moq.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\System.Web.Helpers.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\System.Web.Mvc.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\System.Web.Razor.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\System.Web.WebPages.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\Microsoft.Owin.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\System.Web.Optimization.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\Microsoft.AspNet.Identity.Owin.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\Microsoft.Owin.Security.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\Owin.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\Microsoft.Owin.Security.Cookies.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\EntityFramework.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\log4net.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\PagedList.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\CompStore.pdb
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\Castle.Core.xml
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\Moq.pdb
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\Moq.xml
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\System.Web.Helpers.xml
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\System.Web.Mvc.xml
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\System.Web.Razor.xml
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\System.Web.WebPages.xml
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\System.Web.WebPages.Deployment.xml
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\Microsoft.Owin.xml
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\System.Web.Optimization.xml
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\Microsoft.AspNet.Identity.Owin.xml
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\Microsoft.Owin.Security.xml
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\Microsoft.Owin.Security.Cookies.xml
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\EntityFramework.xml
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\log4net.xml
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\PagedList.xml
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\ru\System.Web.Helpers.resources.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\ru\System.Web.Mvc.resources.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\ru\System.Web.Razor.resources.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\ru\System.Web.WebPages.resources.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\ru\System.Web.WebPages.Deployment.resources.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\ru\System.Web.WebPages.Razor.resources.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\ru\Microsoft.VisualStudio.QualityTools.UnitTestFramework.resources.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\ru\Microsoft.Owin.resources.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\ru\System.Web.Optimization.resources.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\ru\Microsoft.AspNet.Identity.Core.resources.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\ru\Microsoft.AspNet.Identity.Owin.resources.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\ru\Microsoft.Owin.Security.resources.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\ru\Microsoft.AspNet.Identity.EntityFramework.resources.dll
+C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\ru\Microsoft.Owin.Host.SystemWeb.resources.dll
