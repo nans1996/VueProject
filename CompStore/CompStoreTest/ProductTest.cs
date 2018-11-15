@@ -22,7 +22,7 @@ namespace CompStoreTest
             //mock.Setup(a => a.GetAllProduct()).Returns(new List<Product>());
             
             IComputerRepository repository = new InMemoryComputerRepository();
-            ProductController controller = new ProductController(repository);
+          //  ProductController controller = new ProductController(repository);
 
             //var result = controller.Index(page) as ViewResult;
             //Assert.AreEqual("Index",result.ViewName);

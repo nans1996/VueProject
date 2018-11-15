@@ -154,3 +154,7 @@ C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\ru\Microso
 C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\ru\EntityFramework.resources.dll
 C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\ru\Microsoft.AspNet.Identity.EntityFramework.resources.dll
 C:\Users\Анастасия\Desktop\CompStore\CompStoreTest\bin\Debug\ru\Microsoft.Owin.Host.SystemWeb.resources.dll
+C:\Users\nasty\Documents\GitHub\VueProject\CompStore\CompStoreTest\obj\Debug\CompStoreTest.csprojAssemblyReference.cache
+C:\Users\nasty\Documents\GitHub\VueProject\CompStore\CompStoreTest\obj\Debug\CompStoreTest.csproj.CoreCompileInputs.cache
+C:\Users\nasty\Documents\GitHub\VueProject\CompStore\CompStoreTest\obj\Debug\CompStoreTest.dll
+C:\Users\nasty\Documents\GitHub\VueProject\CompStore\CompStoreTest\obj\Debug\CompStoreTest.pdb

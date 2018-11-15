@@ -1,161 +1,21 @@
-﻿@model IEnumerable<CompStore.Product>
-
-
+﻿@using System.Web.Optimization
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Home Page Product";
 }
-
-<h2>Товары</h2>
-@if (User.IsInRole("Seller"))
-{
-    @Html.ActionLink("Продажа", "Index", "Cart")
-}
-@if (User.IsInRole("Manager") || User.IsInRole("Director"))
-{
-    @Html.ActionLink("Добавить", "Create")
-}
-@using (Html.BeginForm("Index", "Product", FormMethod.Get))
-{
-    <div class="row">
-        <div class="col-md-4">
-            <div class="form-group">
-
-                <label for="search">Найти товар</label>
-                <input type="text" class="form-control" id="search" placeholder="Название, идентификатор..." />
-                <hr />
-                @*<p>
-
-                    Поиск товара: @Html.TextBox("SearchString", ViewBag.CurrentFilter as string, new { @placeholder = "Поиск по названию или идентификатору", @style = "width:364px;" })
-                    <input type="submit" value="Поиск" />
-                       </p>*@
-            </div>
-        </div>
-    </div>
-
-}
-<div class="container" id="app">
-    <table class="table">
-
-        <tr>
-
-            <th>
-                Идентификатор
-            </th>
-            <th>
-                Название
-            </th>
-            <th>
-                Категория
-            </th>
-            <th>
-                Поставщик
-            </th>
-            <th>
-                Страна производства
-            </th>
-            <th>
-                Количество
-            </th>
-            <th>
-                Цена за единицу товара
-            </th>
-            @if (User.IsInRole("Manager") || User.IsInRole("Counter"))
-            {
-                <th>
-                    Дата постановки на учет
-                </th>
-            }
-            <th></th>
-        </tr>
-
-
-
-        @foreach (var item in Model)
-        {
-
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Identificator)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @item.Category.Name
-                </td>
-
-                <td>
-                    @Html.ActionLink(@item.Supplier.Name, "Details/" + item.Id_supplier, "Supplier")
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Country)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Number)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
-                @if (User.IsInRole("Manager") || User.IsInRole("Counter"))
-                {
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Accounting_date)
-                    </td>
-                }
-                <td>
-                    @if (User.IsInRole("Manager") || User.IsInRole("Director") || User.IsInRole("Counter"))
-                    {
-
-                        @Html.ActionLink("Изменить", "Edit", new { id = item.Id })
-                    }
-                    @if (User.IsInRole("Manager") || User.IsInRole("Director"))
-                    {
-                        @Html.ActionLink("Детали", "Details", new { id = item.Id })
-                    }
-                    @if (User.IsInRole("Manager") || User.IsInRole("Director") || User.IsInRole("Counter"))
-                    {
-                        @Html.ActionLink("Списать", "Delete", new { id = item.Id })
-                    }
-                    @if (User.IsInRole("Seller"))
-                    {
-                        <p>
-                            <input type="button" onclick="addToCart(@item.Id)" value="Добавить" />
-                        </p>
-                    }
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.Info)
-                </td>
-            </tr>
-
-        }
-
-    </table>
-
-
-    <div id="app">
-        {{message}}
-    </div>
-
+<div id="app1">
+    {{ message }}
 </div>
+<div id="app"></div>
+@Scripts.Render("~/Scripts/vue.min.js")
+@Scripts.Render("~/Scripts/app.js")
 
-<script type="text/jscript">
-    function addToCart(Id) {
-        debugger;
-        var url = '@Url.Action("AddToCart", "Cart")'
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: { "id": Id },
-            success: function (data) {
-                debugger;
-                alert("Товар добавлен!");
-
-            },
-
-        });
-    }
+<script>
+    new Vue({
+        el: '#app1',
+        data: {
+            message: 'Hello Vue.js!'
+        }
+    })
 </script>
 
 

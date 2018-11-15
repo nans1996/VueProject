@@ -13,7 +13,15 @@ namespace CompStore.Controllers.DAOController
 {
     public class ProductController : Controller
     {
-        Entities entities = new Entities();
+
+        public ProductController()
+        {
+            entities = new Entities();
+            entities.Configuration.ProxyCreationEnabled = false;
+        }
+
+        private Entities entities;
+
         DAOProduct DaoP = new DAOProduct();
         DAOCategory category = new DAOCategory();
         DAOSupplier sup = new DAOSupplier();
@@ -26,24 +34,24 @@ namespace CompStore.Controllers.DAOController
             return (categoryes.Count() > 0);
         }
         // GET: Product
-        
-        //public ActionResult Index(String searchString)
-        //{
-        //    var products = from product in entities.Product
-        //                   select product;         
-        //    if (!String.IsNullOrEmpty(searchString))
-        //    {
-        //        products = products.Where(s => s.Name.ToUpper().Contains(searchString) || s.Identificator.ToUpper().Contains(searchString)) ;
-        //    }
-            
-        //    return View(products.ToList());          
-        //}
 
-       [HttpPut]
-            public IEnumerable<Product> Index()
+        public ActionResult Index(String searchString)
         {
-            return DaoP.GetAllProducts();
+            var products = from product in entities.Product
+                           select product;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                products = products.Where(s => s.Name.ToUpper().Contains(searchString) || s.Identificator.ToUpper().Contains(searchString));
+            }
+
+            return View(products.ToList());
         }
+
+        //[HttpPut]
+        //     public IEnumerable<Product> Index()
+        // {
+        //     return DaoP.GetAllProducts();
+        // }
         // GET: Product/Details/5
         public ActionResult Details(int id)
         {
@@ -70,17 +78,17 @@ namespace CompStore.Controllers.DAOController
         // POST: Product/Create
         [HttpPost]
         public ActionResult Create([Bind(Exclude = "Id")] Product product)
-        {        
-            if (DaoP.AddProduct(product))
-            {
+        {
+            //if (DaoP.AddProduct(product))
+            //{
                 DaoP.AddToService(product);
                 return RedirectToAction("Index");
-            }
-            else
-            {
+            //}
+            //else
+            //{
 
-                return HttpNotFound();
-            }
+            //    return HttpNotFound();
+            //}
         }
         // GET: Product/Edit/5
         public ActionResult Edit(int id)
@@ -101,7 +109,7 @@ namespace CompStore.Controllers.DAOController
         // POST: Product/Edit/5
         [HttpPost]
         public ActionResult Edit(int id, Product contact)
-        {     
+        {
             if ((id > 0) && (contact != null) && (ModelState.IsValid))
             {
                 DaoP.UpdateProduct(contact);
@@ -126,7 +134,7 @@ namespace CompStore.Controllers.DAOController
         {
             if (id > 0 && ModelState.IsValid)
             {
-               //DaoP.DeletePresence(id);
+                //DaoP.DeletePresence(id);
                 DaoP.DeleteProduct(id);
                 return RedirectToAction("Index");
             }

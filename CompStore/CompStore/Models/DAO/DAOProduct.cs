@@ -10,8 +10,15 @@ namespace CompStore.Models.DAO
 {
     public class DAOProduct
     {
+        public DAOProduct()
+        {
+            entities = new Entities();
+            entities.Configuration.ProxyCreationEnabled = false;
+        }
+
+
         StoreWebServiceSoapClient s = new StoreWebServiceSoapClient();
-        Entities entities = new Entities();
+       private Entities entities;
         DAOCart cart = new DAOCart();
 
         [HttpGet ]
@@ -25,7 +32,7 @@ namespace CompStore.Models.DAO
             return entities.Product.Where(n => n.Id == id).First();
         }
 
-        public bool AddProduct(Product product)
+        public Product AddProduct(Product product)
         {
             try
             {
@@ -35,9 +42,9 @@ namespace CompStore.Models.DAO
             catch(System.Data.Entity.Validation.DbEntityValidationException ex)
             {
                 Logger.Log.Error("Ошибка: ", ex);
-                return false;
+               
             }
-            return true;
+            return product;
         }
 
         public bool UpdateNumberProduct()
