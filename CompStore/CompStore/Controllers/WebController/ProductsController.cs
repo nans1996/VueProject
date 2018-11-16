@@ -18,7 +18,7 @@ namespace CompStore.Controllers.DAOController
         private Entities db = new Entities();
 
         // GET: api/Products
-        [Route("api/Products")]
+       
         [HttpGet]
         public IEnumerable<Product> GetAllProduct()
         {
@@ -71,18 +71,13 @@ namespace CompStore.Controllers.DAOController
         }
 
         // POST: api/Products
-        [ResponseType(typeof(Product))]
-        public IHttpActionResult PostProduct(Product product)
+        //добавление
+        
+        [HttpPost]
+        public Product PostProduct(Product product)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            db.Product.Add(product);
-            db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = product.Id }, product);
+            dao.AddProduct(product);
+           return product;
         }
 
         // DELETE: api/Products/5

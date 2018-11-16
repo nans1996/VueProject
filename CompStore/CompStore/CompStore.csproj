@@ -268,6 +268,7 @@
     <Compile Include="Controllers\DAOController\CartController.cs" />
     <Compile Include="Controllers\DAOController\CategoryController.cs" />
     <Compile Include="Controllers\DAOController\ProductController.cs" />
+    <Compile Include="Controllers\WebController\CategoriesController.cs" />
     <Compile Include="Controllers\WebController\ProductsController.cs" />
     <Compile Include="Controllers\DAOController\SearchController.cs" />
     <Compile Include="Controllers\DAOController\SellingController.cs" />
@@ -360,6 +361,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="category.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
@@ -402,6 +404,7 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\categories.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

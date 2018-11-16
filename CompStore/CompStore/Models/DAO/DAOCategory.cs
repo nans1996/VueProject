@@ -7,7 +7,14 @@ namespace CompStore.Models.DAO
 {
     public class DAOCategory
     {
-        private Entities entities = new Entities();
+
+        public DAOCategory()
+        {
+            entities = new Entities();
+            entities.Configuration.ProxyCreationEnabled = false;
+        }
+
+        private Entities entities;
 
         public IEnumerable<Category> GetAllCategoryes()
         {
