@@ -52,21 +52,21 @@ namespace CompStore.Controllers.DAOController
             return View(c);
         }
         // POST: Category/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, Category contact)
-        {
-            if ((id > 0) && (contact != null) && (ModelState.IsValid))
-            {
-                daocat.UpdateCategory(contact);
-                return RedirectToAction("Index");
-            }
-            else
-            {
+        //[HttpPost]
+        //public ActionResult Edit(int id, Category contact)
+        //{
+        //    if ((id > 0) && (contact != null) && (ModelState.IsValid))
+        //    {
+        //        daocat.UpdateCategory(contact);
+        //        return RedirectToAction("Index");
+        //    }
+        //    else
+        //    {
 
-                return View("Edit");
-            }
+        //        return View("Edit");
+        //    }
 
-        }
+        //}
         // GET: Category/Delete/5
         public ActionResult Delete(int id)
         {

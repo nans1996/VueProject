@@ -34,11 +34,12 @@ namespace CompStore.Models.DAO
             return true;
         }
 
-        public void UpdateCategory(Category category)
+        public Category UpdateCategory(int id, Category category)
         {
-            var Entity = entities.Category.FirstOrDefault(x => x.Id == category.Id);
+            var Entity = entities.Category.FirstOrDefault(x => x.Id == id);
             Entity.Name = category.Name;
             entities.SaveChanges();
+            return Entity;
         }
 
         public Category GetCategory(int id)

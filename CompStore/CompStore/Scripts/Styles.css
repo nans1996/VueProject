@@ -1,0 +1,16 @@
+﻿body {
+    background-color: #b0c4de;
+
+}
+.pole  {
+    width: 300px;
+    font-size: 13px;
+    padding: 6px 0 4px 10px;
+    border: 1px solid #cecece;
+    background: #F6F6f6;
+    border-radius: 8px;
+}
+
+.d {
+    background-color: #b0c4de;
+}

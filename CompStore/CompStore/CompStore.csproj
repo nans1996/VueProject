@@ -413,12 +413,12 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Scripts\product.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Styles.css" />
     <Content Include="Scripts\vue.js" />
     <Content Include="Scripts\vue.min.js" />
-    <Content Include="Scripts\app.js" />
+    <Content Include="Scripts\VueScript.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Service References\ServiceReference\CompStore.ServiceReference.AddStoreResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>

@@ -10,21 +10,23 @@ namespace CompStore.Controllers.WebController
 {
     public class CategoriesController : ApiController
     {
-        
+
         DAOCategory daocat = new DAOCategory();
 
         // GET: Category
+        [HttpGet]
         public IEnumerable<Category> GetAllCategory()
         {
             return daocat.GetAllCategoryes();
         }
 
         // GET: Category/Details/5
+        [HttpGet]
         public Category GetCategory(int id)
         {
             return daocat.GetCategory(id);
         }
-        
+
         // POST: Category/Create
         [HttpPost]
         public Category PostCategory( Category category)
@@ -33,10 +35,12 @@ namespace CompStore.Controllers.WebController
             return category;
         }
         // GET: Category/Edit/5
-        public Category Edit(int id)
+        [HttpPut]
+        public Category PutEdit(int id, Category category)
         {
-            Category c = daocat.GetCategory(id);
-
+           
+                
+         Category c =   daocat.UpdateCategory(id, category);
             return c;
         }
         
