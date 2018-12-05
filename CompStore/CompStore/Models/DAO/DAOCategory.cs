@@ -19,6 +19,7 @@ namespace CompStore.Models.DAO
         public IEnumerable<Category> GetAllCategoryes()
         {
             return entities.Category.Select(n => n);
+          
         }
         public bool AddCategory(Category category)
         {
@@ -44,7 +45,21 @@ namespace CompStore.Models.DAO
 
         public Category GetCategory(int id)
         {
-            return entities.Category.Where(n => n.Id == id).First();
+           
+
+            return  entities.Category.Where(n => n.Id == id).First();
+        }
+
+        public List<Category> GetSearch(String searchString)
+        {
+            var categories = from category in entities.Category
+                           select category;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                categories = categories.Where(s => s.Name.ToUpper().Contains(searchString));
+            }
+
+            return categories.ToList();
         }
 
         public void DeleteCategory(int id)

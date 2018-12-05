@@ -12,5 +12,14 @@
 }
 
 .d {
-    background-color: #b0c4de;
+    background-color: #ffd800;
 }
+
+.text{
+    font-weight: lighter;
+    font-style: normal;
+    font-size: 24px;
+}
+
+
+

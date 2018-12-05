@@ -361,7 +361,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="category.html" />
+    <Content Include="Pages\category.html" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\PagedList.css" />
@@ -369,6 +369,11 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\bin.png" />
+    <Content Include="Images\edit %281%29.png" />
+    <Content Include="Images\edit.png" />
+    <Content Include="Images\save.png" />
+    <Content Include="Images\trash.png" />
     <Content Include="index.html" />
     <Content Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
