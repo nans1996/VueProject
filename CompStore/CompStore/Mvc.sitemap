@@ -4,12 +4,7 @@
             xsi:schemaLocation="http://mvcsitemap.codeplex.com/schemas/MvcSiteMap-File-4.0 MvcSiteMapSchema.xsd">
 
   <mvcSiteMapNode title="Главная" controller="Home" action="Index">
-    <mvcSiteMapNode title="Категории" controller="Category" action="Index" roles="Seller,Manager,Director"/>
-    <mvcSiteMapNode title="Товары" controller="Product" action="Index" roles="Seller,Manager,Director,Counter"/>
-    <mvcSiteMapNode title="Продажа" controller="Selling" action="Index" roles="Manager,Director"/>
-    <mvcSiteMapNode title="Поставщики" controller="Supplier" action="Index" roles="Manager,Director"/>
-    <mvcSiteMapNode title="Пользователи" controller="AspNetUser" action="Index" roles="Director,Counter"/>
-  <mvcSiteMapNode title="Поиск товара" controller="Search" action="Index" roles="Manager,Director,Seller"/>
+
   </mvcSiteMapNode>
 
 </mvcSiteMap>

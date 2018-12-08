@@ -15,10 +15,10 @@ namespace CompStore.Controllers.DAOController
     public class ProductsController : ApiController
     {
         DAOProduct dao = new DAOProduct();
-        private Entities db = new Entities();
+        
 
         // GET: api/Products
-       
+
         [HttpGet]
         public IEnumerable<Product> GetAllProduct()
         {
@@ -26,48 +26,18 @@ namespace CompStore.Controllers.DAOController
         }
 
         // GET: api/Products/5
-        [ResponseType(typeof(Product))]
+        [HttpGet]
         public Product GetProduct(int id)
         {
-            Product product = dao.GetProduct(id);
-           
+            return dao.GetProduct(id);
 
-            return product;
         }
 
         // PUT: api/Products/5
-        [ResponseType(typeof(void))]
-        public IHttpActionResult PutProduct(int id, Product product)
+        [HttpPut]
+        public Product PutProduct(int id, Product product)
         {
-            if (!ModelState.IsValid)
-            {
-                return BadRequest(ModelState);
-            }
-
-            if (id != product.Id)
-            {
-                return BadRequest();
-            }
-
-            db.Entry(product).State = EntityState.Modified;
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!ProductExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return StatusCode(HttpStatusCode.NoContent);
+            return dao.UpdateProduct(product, id);
         }
 
         // POST: api/Products
@@ -81,33 +51,12 @@ namespace CompStore.Controllers.DAOController
         }
 
         // DELETE: api/Products/5
-        [ResponseType(typeof(Product))]
-        public IHttpActionResult DeleteProduct(int id)
+        [HttpDelete]
+        public void DeleteProduct(int id)
         {
-            Product product = db.Product.Find(id);
-            if (product == null)
-            {
-                return NotFound();
-            }
-
-            db.Product.Remove(product);
-            db.SaveChanges();
-
-            return Ok(product);
+            dao.DeleteProduct(id);
         }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
-
-        private bool ProductExists(int id)
-        {
-            return db.Product.Count(e => e.Id == id) > 0;
-        }
+       
     }
 }

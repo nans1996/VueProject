@@ -31,17 +31,17 @@ namespace CompStore.Controllers.DAOController
             return View("Create");
         }
         // POST: Product/Create
-        [HttpPost]
-        public ActionResult Create([Bind(Exclude = "Id")] Supplier supplier)
-        {
-            if (s.AddSupplier(supplier))
-                return RedirectToAction("Index");
-            else
-            {
+        //[HttpPost]
+        //public ActionResult Create([Bind(Exclude = "Id")] Supplier supplier)
+        //{
+        //    if (s.AddSupplier(supplier))
+        //        return RedirectToAction("Index");
+        //    else
+        //    {
 
-                return HttpNotFound(); 
-            }
-        }
+        //        return HttpNotFound(); 
+        //    }
+        //}
         // GET: Product/Edit/5
         public ActionResult Edit(int id)
         {
@@ -50,20 +50,20 @@ namespace CompStore.Controllers.DAOController
             return View(su);
         }
         // POST: Product/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, Supplier contact)
-        {
-            if ((id > 0) && (contact != null) && (ModelState.IsValid))
-            {
-                s.UpdateSupplier(contact);
-                return RedirectToAction("Index");
-            }
-            else
-            {
+        //[HttpPost]
+        //public ActionResult Edit(int id, Supplier contact)
+        //{
+        //    if ((id > 0) && (contact != null) && (ModelState.IsValid))
+        //    {
+        //        s.UpdateSupplier(contact);
+        //        return RedirectToAction("Index");
+        //    }
+        //    else
+        //    {
 
-                return HttpNotFound(); 
-            }
-        }
+        //        return HttpNotFound(); 
+        //    }
+        //}
 
         // GET: Product/Delete/5
         public ActionResult Delete(int id)

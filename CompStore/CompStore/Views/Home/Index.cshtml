@@ -2,6 +2,14 @@
     ViewBag.Title = "Home Page";
 }
 
+@if (User.IsInRole("Manager") || User.IsInRole("Director") || User.IsInRole("Seller") || User.IsInRole("Counter"))
+{
+<p>
+
+    <a href="~/Pages/product.html">Перейти к системе</a>
+</p>
+}
+
 <div class="jumbotron">
     <h1>Компьютерный магазин</h1>
     <p class="lead">Система автоматизации учета торговой деятельности</p>

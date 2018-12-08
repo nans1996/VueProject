@@ -2,24 +2,38 @@
     background-color: #b0c4de;
 
 }
-.pole  {
+.pole {
     width: 300px;
     font-size: 13px;
     padding: 6px 0 4px 10px;
     border: 1px solid #cecece;
     background: #F6F6f6;
     border-radius: 8px;
+    margin-left: 40px;
 }
 
 .d {
     background-color: #ffd800;
 }
 
-.text{
+.text {
     font-weight: lighter;
     font-style: normal;
-    font-size: 24px;
+    font-size: 14px;
+    text-align:center;
 }
+.text2 {
+    font-weight: bold;
+    font-style: normal;
+    font-size: 12px;
+    text-align: center;
+}
+
+.tab {
+    margin-left: 40px;
+}
+
+
 
 
 

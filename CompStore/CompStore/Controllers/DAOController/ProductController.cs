@@ -106,21 +106,21 @@ namespace CompStore.Controllers.DAOController
                 return RedirectToAction("Index");
             return View(pr);
         }
-        // POST: Product/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, Product contact)
-        {
-            if ((id > 0) && (contact != null) && (ModelState.IsValid))
-            {
-                DaoP.UpdateProduct(contact);
-                return RedirectToAction("Index");
-            }
-            else
-            {
+        //// POST: Product/Edit/5
+        //[HttpPost]
+        //public ActionResult Edit(int id, Product contact)
+        //{
+        //    if ((id > 0) && (contact != null) && (ModelState.IsValid))
+        //    {
+        //        DaoP.UpdateProduct(contact);
+        //        return RedirectToAction("Index");
+        //    }
+        //    else
+        //    {
 
-                return HttpNotFound();
-            }
-        }
+        //        return HttpNotFound();
+        //    }
+        //}
         // GET: Product/Delete/5
         public ActionResult Delete(int id)
         {

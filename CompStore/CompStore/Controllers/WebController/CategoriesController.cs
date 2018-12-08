@@ -20,11 +20,6 @@ namespace CompStore.Controllers.WebController
             return daocat.GetAllCategoryes();
         }
 
-        [HttpGet]
-        public List<Category> GetSearch(String searchString)
-        {
-            return daocat.GetSearch(searchString);
-        }
 
         // GET: Category/Details/5
         [HttpGet]

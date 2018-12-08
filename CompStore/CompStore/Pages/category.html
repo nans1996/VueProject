@@ -2,7 +2,8 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Категории пользователей</title>
+    
+    <title>Категории товаров</title>
     <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link href="../Content/bootstrap.min.css" rel="stylesheet" />
@@ -12,35 +13,42 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-default navbar-fixed-top navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <h:graphicImage value="/img/logo.png" style="width:70px;" />
-            </div>
-            <!-- default menu -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">COMP</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Товары</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Категории<span class="sr-only">(current)</span></a>
+                </li>
 
-            <div id="navbarCollapse" class="collapse navbar-collapse">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Пользователи</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Поставщики</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Продажа</a>
+                </li>
+                <li class="navbar-right">
+                    <a class="nav-link disabled" href="#">Корзина</a>
+                </li>
 
-                <ul class="nav navbar-nav navbar-right">
-                    <li><h:link outcome="index" value="Главная" /></li>
-                    <li><h:link outcome="goals" value="Цели" /></li>
-                    <li><h:link outcome="rating" value="Рейтинг" /></li>
-                    <li><h:link outcome="forum" value="Форум" /></li>
-                 
-                 
-                </ul>
-            </div>
+            </ul>
         </div>
     </nav>
-
-    <h3>Категории</h3>
-
+    </br>
+    <a href="category.html">category.html</a>
+    <div class="tab">
+        <p class="text-uppercase">Категории</p>
+    </div>
+    <br>
 
     <div id="categ"></div>
 

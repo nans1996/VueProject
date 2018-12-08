@@ -7,7 +7,13 @@ namespace CompStore.Models.DAO
 {
     public class DAOSupplier
     {
-        Entities entities = new Entities();
+        public DAOSupplier()
+        {
+            entities = new Entities();
+            entities.Configuration.ProxyCreationEnabled = false;
+        }
+
+        private Entities entities;
 
         public IEnumerable<Supplier> GetAllSupplier()
         {
@@ -19,51 +25,37 @@ namespace CompStore.Models.DAO
             return entities.Supplier.Where(n => n.Id == id).First();
         }
 
-        public bool AddSupplier(Supplier supplier)
+        public Supplier AddSupplier(Supplier supplier)
         {
             try
             {
                 entities.Supplier.Add(supplier);
                 entities.SaveChanges();
             }
-            catch
+            catch (System.Data.Entity.Validation.DbEntityValidationException ex)
             {
-                return false;
+                Logger.Log.Error("Ошибка: ", ex);
+
             }
-            return true;
+            return supplier;
         }
 
-        public bool UpdateSupplier(Supplier s)
+        public Supplier UpdateSupplier(Supplier s, int id)
         {
-            try
-            {
-                var Entity = entities.Supplier.FirstOrDefault(x => x.Id == s.Id);
-                Entity.Name = s.Name;
-                Entity.Adress = s.Adress;
-                Entity.Phone = s.Phone;
-                entities.SaveChanges();
-            }
-            catch
-            {
-                return false;
-            }
-
-            return true;
+            var Entity = entities.Supplier.FirstOrDefault(x => x.Id == id);
+            Entity.Name = s.Name;
+            Entity.Phone = s.Phone;
+            Entity.Adress = s.Adress;
+            entities.SaveChanges();
+            return Entity;
         }
-
-        public bool DeleteSupplier(int id)
+        public void DeleteSupplier(int id)
         {
-            try
-            {
-                Supplier s = GetSupplier(id);
-                entities.Supplier.Remove(s);
-                entities.SaveChanges();
-            }
-            catch
-            {
-                return false;
-            }
-            return true;
+
+            Supplier pr = GetSupplier(id);
+            entities.Supplier.Remove(pr);
+            entities.SaveChanges();
+
         }
     }
-}
+    }

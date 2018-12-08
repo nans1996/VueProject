@@ -79,43 +79,27 @@ namespace CompStore.Models.DAO
             return true;
         }
 
-        public bool UpdateProduct(Product p)
+        public Product UpdateProduct(Product p, int id)
         {
-            try
-            {
-                var Entity = entities.Product.FirstOrDefault(x => x.Id == p.Id);
-                Entity.Identificator = p.Identificator;
-                Entity.Name = p.Name;
-                Entity.Id_category = p.Id_category;
-                Entity.Id_supplier = p.Id_supplier;
-                Entity.Country = p.Country;
-                Entity.Number = p.Number;
-                Entity.Price = p.Price;
-                Entity.Accounting_date = p.Accounting_date;
-                Entity.Info = p.Info;
-                entities.SaveChanges();
-            }
-            catch 
-            {
-                return false;
-            }
-
-            return true;
+            var Entity = entities.Product.FirstOrDefault(x => x.Id == id);
+            Entity.Identificator = p.Identificator;
+            Entity.Name = p.Name;
+            Entity.Id_category = p.Id_category;
+            Entity.Id_supplier = p.Id_supplier;
+            Entity.Number = p.Number;
+            Entity.Price = p.Price;
+            Entity.Accounting_date = p.Accounting_date;
+            entities.SaveChanges();
+            return Entity;
         }
 
-        public bool DeleteProduct(int id)
+        public void DeleteProduct(int id)
         {
-            try
-            {
+            
                 Product pr = GetProduct(id);
                 entities.Product.Remove(pr);
                 entities.SaveChanges();
-            }
-            catch
-            {
-                return false;
-            }
-            return true;
+           
         }
 
         public void AddToService(Product product)

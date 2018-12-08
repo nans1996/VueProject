@@ -8,29 +8,29 @@ namespace CompStore.Models.DAO
 {
     public class DAOAspNetUser
     {
-        private Entities entities = new Entities();
+        public DAOAspNetUser() {
+         entities = new Entities();
+        entities.Configuration.ProxyCreationEnabled = false;
 
-        public IEnumerable<AspNetUsers> GetAllUsers()
+     }
+
+        private Entities entities;
+
+    public IEnumerable<AspNetUsers> GetAllUsers()
         {
             return entities.AspNetUsers.Select(n => n);
         }
              
-        public bool UpdateUser(AspNetUsers user)
+        public AspNetUsers UpdateUser(AspNetUsers user, string id)
         {
-            try
-            {
-                var Entity = entities.AspNetUsers.FirstOrDefault(x => x.Id == user.Id);
+                var Entity = entities.AspNetUsers.FirstOrDefault(x => x.Id == id);
                 Entity.Email = user.Email;
                 Entity.Name = user.Name;
                 Entity.n_per_file = user.n_per_file;
                 Entity.Salary = Entity.Salary;
                 entities.SaveChanges();
-            }
-            catch
-            {
-                return false;
-            }
-            return true;
+            return user;
+          
         }
 
         public AspNetUsers GetUser(string id)
