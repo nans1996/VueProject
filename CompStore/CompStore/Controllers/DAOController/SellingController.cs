@@ -26,11 +26,11 @@ namespace CompStore.Controllers.DAOController
             int pageSize = 10;
             return View(model.ToPagedList(pageNumber, pageSize));
         }
-        public ActionResult IndexSellingProduct(int id)
-        {
+        //public ActionResult IndexSellingProduct(int id)
+        //{
           
-            return View(s.GetSellingProduct(id));
-        }
+        //    return View(s.GetSellingProduct(id));
+        //}
 
         // GET: Product/Details/5
         public ActionResult Details(int id)
@@ -47,21 +47,21 @@ namespace CompStore.Controllers.DAOController
         }
 
         // POST: Product/Create
-        [HttpPost]
-        public ActionResult Create([Bind(Exclude = "Id")] Selling selling)
-        {
-            var id_user = User.Identity.GetUserId();
+        //[HttpPost]
+        //public ActionResult Create([Bind(Exclude = "Id")] Selling selling)
+        //{
+        //    var id_user = User.Identity.GetUserId();
             
-            if (s.AddSelling(id_user, selling) && product.UpdateNumberProduct())
-            {
-                    cart.RemoveAll();
-                    return RedirectToAction("Index");
-            }
-            else
-            {
+        //    if (s.AddSelling(id_user, selling) && product.UpdateNumberProduct())
+        //    {
+        //            cart.RemoveAll();
+        //            return RedirectToAction("Index");
+        //    }
+        //    else
+        //    {
 
-                return View("Create");
-            }
-        }
+        //        return View("Create");
+        //    }
+        //}
     }
 }

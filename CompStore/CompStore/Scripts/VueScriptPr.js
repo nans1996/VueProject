@@ -152,7 +152,7 @@ Vue.component('products-list', {
         '<table  style="margin: auto;">' +
         '<tr><th class="text2" width="150">Идентификатор</th><th class="text2" width="150">Название</th><th class="text2" width="150">Количество<th>' +
         '<th class="text2" width="150" >Категория</th> <th class="text2" width="150">Поставщик</th> <th class="text2" width="150">Страна</th>' +
-        '<th class="text2" width="150">Цена</th> <th width="150"></th><th width="100"></th></tr>' +
+        '<th class="text2" width="150">Цена</th> <th width="150"></th><th width="150"></th></tr>' +
         '</table>' +
         '<product-row v-for = "product in products" :key="product.Id" :product="product"' +
         ':editeProduct="editeProduct"  :products="products"/></div> ',

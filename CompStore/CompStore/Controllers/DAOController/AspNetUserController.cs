@@ -26,21 +26,7 @@ namespace CompStore.Controllers.DAOController
             AspNetUsers asp = daouser.GetUser(id);
             return View(asp);
         }
-        // POST: AspNetUser/Edit/5
-        //[HttpPost]
-        //public ActionResult Edit(string id, AspNetUsers contact)
-        //{
-        //    if ((id != null) && (contact != null) && (ModelState.IsValid))
-        //    {
-        //        daouser.UpdateUser(contact);
-        //        return RedirectToAction("Index");
-        //    }
-        //    else
-        //    {
-
-        //        return View("Edit");
-        //    }
-        //}
+       
         // GET: AspNetUser/Delete/5
         public ActionResult Delete(string id)
         {

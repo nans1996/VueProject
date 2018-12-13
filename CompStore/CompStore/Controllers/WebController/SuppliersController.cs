@@ -35,7 +35,8 @@ namespace CompStore.Controllers.WebController
         [HttpPut]
         public Supplier PutSupplier(int id, Supplier supplier)
         {
-            return dao.UpdateSupplier(supplier, id);
+            Supplier s = dao.UpdateSupplier(supplier, id);
+            return s;
         }
 
         // POST: api/Suppliers

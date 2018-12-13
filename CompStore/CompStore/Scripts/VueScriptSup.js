@@ -16,7 +16,7 @@ Vue.component('suppliers-form', {
     },
 
     watch: {
-        productAttr: function (newVal, oldVal) {
+        supplierAttr: function (newVal, oldVal) {
             this.id = newVal.id;
             this.name = newVal.name;
             this.adress = newVal.adress;

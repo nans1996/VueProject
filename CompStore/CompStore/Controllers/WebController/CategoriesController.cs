@@ -38,11 +38,10 @@ namespace CompStore.Controllers.WebController
         // GET: Category/Edit/5
         [HttpPut]
         public Category PutEdit(int id, Category category)
-        {
-           
+        {       
                 
          Category c =   daocat.UpdateCategory(id, category);
-            return c;
+          return c;
         }
         
         // GET: Category/Delete/5

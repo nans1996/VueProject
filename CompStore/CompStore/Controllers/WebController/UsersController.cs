@@ -28,7 +28,8 @@ namespace CompStore.Controllers.WebController
         [HttpGet]
         public AspNetUsers GetAspNetUsers(string id)
         {
-           return dao.GetUser(id);
+           AspNetUsers us = dao.GetUser(id);
+            return us;
         }
 
         // PUT: api/Users/5
