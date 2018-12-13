@@ -60,15 +60,19 @@ Vue.component('categories-form', {
 //вывод объектов
 Vue.component('category-row', {
     props: ['category', 'editeCategory', 'categories'],
-    template: '<table  width="600" style="margin: auto;">' +
-        '<tbody>'+
-        '<tr><td class="text"> {{ category.name }}</td>' +
-         '<td width="150">'+
+    template:
+        '<table  style="margin: auto;">' +
+        '<tbody>' +
+        '</br>'+
+        '<tr><td class="text" width="150"> {{ category.id}}</td>' +
+        '<td class="text" width="150"> {{ category.name }}</td>' +
+        '<td width="150">' +
         '<input type="image" src="/Images/edit (1).png" @click="edit"/>' +
-        '<input type="image"srс="/Images/bin.png" @click="del" />' +
-        '</td></tr>' +
-        '<tr width="700"><HR WIDTH="130%" ALIGN="center" SIZE="1"/></tr>'+
-       '</tbody>'+
+        '<input class="tab" type="image" src="/Images/bin.png" @click="del"/>' +
+        '</td>' +
+        '</tr> ' +
+        '<tr width="950"><HR WIDTH="400%" ALIGN="center" SIZE="1"/></tr>' +
+        '</tbody>' +
         '</table> ',
     methods: {
         edit: function () {
