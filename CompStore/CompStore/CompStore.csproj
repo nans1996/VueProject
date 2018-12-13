@@ -317,14 +317,11 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\CartIndexViewModel.cs" />
     <Compile Include="Models\DAO\DAOAspNetUser.cs" />
-    <Compile Include="Models\DAO\DAOCart.cs" />
     <Compile Include="Models\DAO\DAOCategory.cs" />
     <Compile Include="Models\DAO\DAOProduct.cs" />
     <Compile Include="Models\DAO\DAOSelling.cs" />
     <Compile Include="Models\DAO\DAOSupplier.cs" />
-    <Compile Include="Models\DAO\Search.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Logger.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
