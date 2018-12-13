@@ -34,6 +34,7 @@ Vue.component('users-form', {
         '<div>' +
 
         '<input class="tab" type="image" src="/Images/save.png" @click="save"/>' +
+        '<p class = "tab">Поля для редактирования</p>'+
         '</br>' +
         '<input type="text" placeholder="email" class="pole" v-model="email"/>' +
         '</br>' +

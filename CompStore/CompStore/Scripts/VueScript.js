@@ -23,13 +23,11 @@ Vue.component('categories-form', {
 
     template:
         '<div>' +
-        '<button @click="save"><img alt="" srс="/Images/save.png"  style="vertical-align:middle"/></button>' +
-        
+
+        '<input class="tab" type="image" src="/Images/save.png" @click="save"/>' +
         '</br>' +
-       
         '<input type="text" placeholder="название" class="pole" v-model="name"/>' +
-        
-         '</div>',
+        '</div>',
     methods: {
         save: function () {
             var category = { name: this.name };
@@ -94,7 +92,6 @@ Vue.component('categories-list', {
     props: ['categories'],
     data: function () {
         return {
-        //    searchStr: '',
             category: null
         }
     },
@@ -102,7 +99,12 @@ Vue.component('categories-list', {
     
     template: '<div style="position: relative; width: 300 px;">' +
         '<categories-form :categories="categories" :categoryAttr="category"/>' +
-        
+        '</br>' +
+        '</br>' +
+        '<table  style="margin: auto;">' +
+        '<tr><th class="text2" width="150">№</th><th class="text2" width="150">Название<th>' +
+        '<th class="text2" width="150"></th></tr>' +
+        '</table>' +
         '<category-row v-for = "category in categories" :key="category.Id" :category="category"' +
         ':editeCategory="editeCategory"  :categories="categories"/></div> ',
 
