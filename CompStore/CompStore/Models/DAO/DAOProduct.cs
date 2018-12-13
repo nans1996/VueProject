@@ -17,9 +17,9 @@ namespace CompStore.Models.DAO
         }
 
 
-        StoreWebServiceSoapClient s = new StoreWebServiceSoapClient();
+  
        private Entities entities;
-        DAOCart cart = new DAOCart();
+     
 
         [HttpGet ]
         public IEnumerable<Product> GetAllProducts()
@@ -47,37 +47,7 @@ namespace CompStore.Models.DAO
             return product;
         }
 
-        public bool UpdateNumberProduct()
-        {
-            try
-            {
-                var c = cart.GetCart();
-                foreach (var item in c)
-                {
-                    var Entity = entities.Product.FirstOrDefault(x => x.Id == item.id_product);
-                    if (Entity.Number > item.Number)
-                    {
-                        Entity.Number = Entity.Number - item.Number;
-                        entities.SaveChanges();
-                    }
-                    else
-                    {
-                        var pr = GetProduct(item.id_product);
-                        DeletePresence(pr);
-                        Entity.Number = 0;
-                        Entity.Info = "нет в наличии" ;
-                        entities.SaveChanges();
-                    }
-
-                }
-            }
-            catch
-            {
-                return false;
-            }
-
-            return true;
-        }
+       
 
         public Product UpdateProduct(Product p, int id)
         {
@@ -88,6 +58,7 @@ namespace CompStore.Models.DAO
             Entity.Id_supplier = p.Id_supplier;
             Entity.Number = p.Number;
             Entity.Price = p.Price;
+            Entity.Country = p.Country;
             Entity.Accounting_date = p.Accounting_date;
             entities.SaveChanges();
             return Entity;
@@ -102,24 +73,6 @@ namespace CompStore.Models.DAO
            
         }
 
-        public void AddToService(Product product)
-        {
-            try
-            {
-               
-                s.AddReceive(Settings.ID_shop, product.Identificator, product.Number);
-            }
-            catch (System.ServiceModel.CommunicationException ex)
-            {
-                Logger.Log.Error("Ошибка: ", ex);
-            }
-
-        }
-
-        public void DeletePresence(Product pr)
-        {
-            s.DeleteReceive(pr.Identificator, Settings.ID_shop);
-        }
        
     }
 }

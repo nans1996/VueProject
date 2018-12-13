@@ -199,7 +199,6 @@ C:\Users\nasty\Documents\GitHub\VueProject\CompStore\CompStoreTest\bin\Debug\Sys
 C:\Users\nasty\Documents\GitHub\VueProject\CompStore\CompStoreTest\bin\Debug\System.Net.Http.Formatting.dll
 C:\Users\nasty\Documents\GitHub\VueProject\CompStore\CompStoreTest\bin\Debug\System.Web.Http.WebHost.dll
 C:\Users\nasty\Documents\GitHub\VueProject\CompStore\CompStoreTest\bin\Debug\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\nasty\Documents\GitHub\VueProject\CompStore\CompStoreTest\bin\Debug\PagedList.dll
 C:\Users\nasty\Documents\GitHub\VueProject\CompStore\CompStoreTest\bin\Debug\Newtonsoft.Json.dll
 C:\Users\nasty\Documents\GitHub\VueProject\CompStore\CompStoreTest\bin\Debug\CompStore.pdb
 C:\Users\nasty\Documents\GitHub\VueProject\CompStore\CompStoreTest\bin\Debug\CompStore.dll.config
@@ -225,7 +224,6 @@ C:\Users\nasty\Documents\GitHub\VueProject\CompStore\CompStoreTest\bin\Debug\Sys
 C:\Users\nasty\Documents\GitHub\VueProject\CompStore\CompStoreTest\bin\Debug\System.Net.Http.Formatting.xml
 C:\Users\nasty\Documents\GitHub\VueProject\CompStore\CompStoreTest\bin\Debug\System.Web.Http.WebHost.xml
 C:\Users\nasty\Documents\GitHub\VueProject\CompStore\CompStoreTest\bin\Debug\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\nasty\Documents\GitHub\VueProject\CompStore\CompStoreTest\bin\Debug\PagedList.xml
 C:\Users\nasty\Documents\GitHub\VueProject\CompStore\CompStoreTest\bin\Debug\Newtonsoft.Json.xml
 C:\Users\nasty\Documents\GitHub\VueProject\CompStore\CompStoreTest\bin\Debug\ru\System.Web.Helpers.resources.dll
 C:\Users\nasty\Documents\GitHub\VueProject\CompStore\CompStoreTest\bin\Debug\ru\System.Web.Mvc.resources.dll

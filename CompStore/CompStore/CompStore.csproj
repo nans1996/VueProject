@@ -266,15 +266,8 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\DAOController\AspNetUserController.cs" />
-    <Compile Include="Controllers\DAOController\CartController.cs" />
-    <Compile Include="Controllers\DAOController\CategoryController.cs" />
-    <Compile Include="Controllers\DAOController\ProductController.cs" />
     <Compile Include="Controllers\WebController\CategoriesController.cs" />
     <Compile Include="Controllers\WebController\ProductsController.cs" />
-    <Compile Include="Controllers\DAOController\SearchController.cs" />
-    <Compile Include="Controllers\DAOController\SellingController.cs" />
-    <Compile Include="Controllers\DAOController\SupplierController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\WebController\SellingsController.cs" />
@@ -540,8 +533,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Category\Index.cshtml" />
-    <Content Include="Views\Category\Edit.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapTitleHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapPathHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\SiteMapNodeModelList.cshtml" />
@@ -550,28 +541,7 @@
     <Content Include="Views\Shared\DisplayTemplates\MetaRobotsHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\MenuHelperModel.cshtml" />
     <Content Include="Views\Shared\DisplayTemplates\CanonicalHelperModel.cshtml" />
-    <Content Include="Views\Product\Index.cshtml" />
-    <Content Include="Views\Product\Details.cshtml" />
-    <Content Include="Views\Product\Create.cshtml" />
-    <Content Include="Views\Product\Edit.cshtml" />
-    <Content Include="Views\Product\Delete.cshtml" />
-    <Content Include="Views\Supplier\Index.cshtml" />
-    <Content Include="Views\Supplier\Details.cshtml" />
-    <Content Include="Views\Supplier\Create.cshtml" />
-    <Content Include="Views\Supplier\Edit.cshtml" />
-    <Content Include="Views\Supplier\Delete.cshtml" />
-    <Content Include="Views\Category\Create.cshtml" />
-    <Content Include="Views\Selling\Index.cshtml" />
-    <Content Include="Views\Category\Delete.cshtml" />
-    <Content Include="Views\AspNetUser\Index.cshtml" />
-    <Content Include="Views\AspNetUser\Edit.cshtml" />
-    <Content Include="Views\AspNetUser\Delete.cshtml" />
     <None Include="Service References\ServiceReference\StoreWebService.wsdl" />
-    <Content Include="Views\Search\Index.cshtml" />
-    <Content Include="Views\Cart\Index.cshtml" />
-    <Content Include="Views\Selling\IndexSellingProduct.cshtml" />
-    <Content Include="Views\Selling\Create.cshtml" />
-    <Content Include="Views\Products\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
